@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  games_played: 1
+  wins: 1
+  losses: 1
+  rating: 1
+
+two:
+  games_played: 1
+  wins: 1
+  losses: 1
+  rating: 1
