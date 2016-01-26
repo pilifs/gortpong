@@ -32,5 +32,5 @@ Initial data:
 27. Chris 21 - 10 Sophia
 28. Fil 21 - 12 Chris
 29. Fil 21 - 17 Chris
-30. Fil 21 - 17
-31. Fil 22 - 0
+30. Fil 21 - 17 Chris
+31. Fil 22 - 20 Chris
