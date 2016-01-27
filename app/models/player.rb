@@ -13,11 +13,14 @@ class Player < ActiveRecord::Base
   def increment_wins
     self.wins += 1
     self.games_played += 1
+    self.save!
   end
 
   def increment_losses
+    # byebug
     self.losses += 1
     self.games_played += 1
+    self.save!
   end
 
 end

@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
 
   after_save :update_players
 
-  private
+  protected
   def update_players
     self.winner.increment_wins
     self.loser.increment_losses
