@@ -10,42 +10,66 @@
 #1
 Player.create(
   display_name: "Fil",
-  slack_handle: "filips"
+  slack_handle: "filips",
+  wins: 0,
+  losses: 0,
+  games_played: 0
 )
 #2
 Player.create(
   display_name: "cstaikos",
-  slack_handle: "cstaikos"
+  slack_handle: "cstaikos",
+  wins: 0,
+  losses: 0,
+  games_played: 0
 )
 #3
 Player.create(
   display_name: "Mike M.",
-  slack_handle: "michiru-guru"
+  slack_handle: "michiru-guru",
+  wins: 0,
+  losses: 0,
+  games_played: 0
 )
 #4
 Player.create(
   display_name: "Mike C.",
-  slack_handle: "mchepesiuk"
+  slack_handle: "mchepesiuk",
+  wins: 0,
+  losses: 0,
+  games_played: 0
 )
 #5
 Player.create(
   display_name: "Carlos",
-  slack_handle: "lecharles"
+  slack_handle: "lecharles",
+  wins: 0,
+  losses: 0,
+  games_played: 0
 )
 #6
 Player.create(
   display_name: "Sophia",
-  slack_handle: "sophiahe"
+  slack_handle: "sophiahe",
+  wins: 0,
+  losses: 0,
+  games_played: 0
 )
 #7
 Player.create(
   display_name: "Metturan",
-  slack_handle: "meds86"
+  slack_handle: "meds86",
+  wins: 0,
+  losses: 0,
+  games_played: 0
 )
 #8
 Player.create(
   display_name: "Ilia",
-  slack_handle: "ilia"
+  slack_handle: "ilia",
+  wins: 0,
+  losses: 0,
+  games_played: 0
 )
 #1
 Game.create(

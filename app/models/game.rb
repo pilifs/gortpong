@@ -6,8 +6,15 @@ class Game < ActiveRecord::Base
 
   protected
   def update_players
+    # byebug
     self.winner.increment_wins
+    # byebug
+    # self.winner.save!
+    # byebug
     self.loser.increment_losses
+    # byebug
+    # self.loser.save!
+    # byebug
   end
 
 end
