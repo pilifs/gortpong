@@ -1,0 +1,9 @@
+<h1>Rankings</h1>
+
+<% @players.each do |player| %>
+
+  <ul>
+    <li><%= "#{player.display_name} - wins:#{player.wins} - losses: #{player.losses} - games played: #{player.games_played}" %></li>
+  </ul>
+
+<% end %>
