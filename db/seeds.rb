@@ -73,29 +73,29 @@ Player.create(
 )
 #1
 Game.create(
-  winner_id: 1,
-  loser_id: 3,
+  winner_slack: "filips",
+  loser_slack: "ilia",
   winner_score: 21,
   loser_score: 10
 )
 #6
 Game.create(
-  winner_id: 2,
-  loser_id: 1,
+  winner_slack: "cstaikos",
+  loser_slack: "filips",
   winner_score: 21,
   loser_score: 17
 )
-#10
-Game.create(
-  winner_id: 3,
-  loser_id: 4,
-  winner_score: 21,
-  loser_score: 11
-)
-#18
-Game.create(
-  winner_id: 1,
-  loser_id: 5,
-  winner_score: 21,
-  loser_score: 17
-)
+# #10
+# Game.create(
+#   winner_id: 3,
+#   loser_id: 4,
+#   winner_score: 21,
+#   loser_score: 11
+# )
+# #18
+# Game.create(
+#   winner_id: 1,
+#   loser_id: 5,
+#   winner_score: 21,
+#   loser_score: 17
+# )
