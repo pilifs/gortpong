@@ -1,9 +1,29 @@
 <h1>Rankings</h1>
 
-<% @players.each do |player| %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Wins</th>
+    <th>Losses</th>
+    <th>Games Played</th>
+  </tr>
+  <% @players.each do |player| %>
 
-  <ul>
-    <li><%= "#{player.display_name} - wins:#{player.wins} - losses: #{player.losses} - games played: #{player.games_played}" %></li>
-  </ul>
+  <tr>
+    <td>
+      <%= player.display_name %>
+    </td>
+    <td>
+      <%= player.wins %>
+    </td>
+    <td>
+      <%= player.losses %>
+    </td>
+    <td>
+      <%= player.games_played %>
+    </td>
+  </tr>
+      
+  <% end %>
 
-<% end %>
+</table>
