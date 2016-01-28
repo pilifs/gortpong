@@ -23,7 +23,39 @@
       <%= player.games_played %>
     </td>
   </tr>
-      
+
   <% end %>
 
 </table>
+
+<h2 style="display: inline-block">Game Log</h2> <span>(last 10)</span>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>Winner</th>
+    <th>Score</th>
+    <th>Loser</th>
+    <th>Score</th>
+  </tr>
+  <% @games.each do |game| %>
+
+  <tr>
+    <td>
+      <%= game.id %>
+    </td>
+    <td>
+      <%= game.winner_slack %>
+    </td>
+    <td>
+      <%= game.winner_score %>
+    </td>
+    <td>
+      <%= game.loser_slack %>
+    </td>
+    <td>
+      <%= game.loser_score %>
+    </td>
+  </tr>
+
+  <% end %>
