@@ -3,7 +3,7 @@ class Player < ActiveRecord::Base
   has_many :games_lost, :class_name => 'Game', :foreign_key => 'loser_slack', :primary_key => 'slack_handle'
 
 
-  after_create :set_defaults
+  after_initialize :set_defaults
 
   def set_defaults
     self.wins ||= 0
@@ -12,6 +12,7 @@ class Player < ActiveRecord::Base
   end
 
   def increment_wins
+    # byebug
     self.wins += 1
     self.games_played += 1
     save!
