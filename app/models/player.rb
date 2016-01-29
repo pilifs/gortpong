@@ -12,8 +12,14 @@ class Player < ActiveRecord::Base
     self.wins ||= 0
     self.losses ||= 0
     self.games_played ||= 0
-    self.rating = Rating.create
-    self.provisional_rating = ProvisionalRating.create
+    self.rating ||= Rating.create(rating: 1500)
+    # self.provisional_rating = ProvisionalRating.create
   end
+
+  def self.update_ratings(winner, loser)
+    current_winner_rating = winner.rating.rating
+    current_loser_rating = loser.rating.rating
+  end
+
 
 end

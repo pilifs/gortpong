@@ -6,6 +6,7 @@
     <th>Wins</th>
     <th>Losses</th>
     <th>Games Played</th>
+    <th>Rating</th>
   </tr>
   <% @players.each do |player| %>
 
@@ -21,6 +22,9 @@
     </td>
     <td>
       <%= player.games_played %>
+    </td>
+    <td>
+      <%= player.rating.rating %>
     </td>
   </tr>
 
