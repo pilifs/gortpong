@@ -17,9 +17,10 @@ class Game < ActiveRecord::Base
   # end
 
   def update_players
-    # byebug
-    self.winner.increment_wins
-    self.loser.increment_losses
+    self.winner.increment!(:wins)
+    self.winner.increment!(:games_played)
+    self.loser.increment!(:losses)
+    self.loser.increment!(:games_played)
   end
 
 
