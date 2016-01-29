@@ -13,7 +13,7 @@ require 'csv'
 # Further reading: http://rambleon.org/2012/08/28/importing-a-google-spreadsheet-into-a-rails-application/
 # There is also a headers => true property that you can pass into foreach to allow you to label the columns. Not 100% how it works
 CSV.foreach('lib/assets/google-docs-players.csv') do |row|
-  Player.create!({
+  Player.create({
         :slack_handle => row[0],
         :display_name => row[1],
       })
@@ -22,7 +22,7 @@ end
 # Auto updating games csv:
 # https://docs.google.com/spreadsheets/d/1okeCXA80gz2U7p-jUhDEoj0hNYD2LaNvFukqKXnhi1o/pub?gid=178204794&single=true&output=csv
 CSV.foreach('lib/assets/google-docs-games.csv') do |row|
-  Game.create!({
+  Game.create({
         :winner_slack => row[0],
         :winner_score => row[1],
         :loser_slack => row[2],
