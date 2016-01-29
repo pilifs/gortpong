@@ -16,10 +16,4 @@ class Player < ActiveRecord::Base
     # self.provisional_rating = ProvisionalRating.create
   end
 
-  def self.update_ratings(winner, loser)
-    current_winner_rating = winner.rating.rating
-    current_loser_rating = loser.rating.rating
-  end
-
-
 end

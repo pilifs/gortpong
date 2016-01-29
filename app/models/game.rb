@@ -21,7 +21,7 @@ class Game < ActiveRecord::Base
     self.winner.increment!(:games_played)
     self.loser.increment!(:losses)
     self.loser.increment!(:games_played)
-    Player.update_ratings(winner, loser)
+    Rating.update_ratings(winner, loser)
   end
 
 
