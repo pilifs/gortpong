@@ -1,10 +1,9 @@
 class Rating < ActiveRecord::Base
   belongs_to :player
-  after_initialize :set_defaults
 
-  def set_defaults
-    rating ||= 1500
-  end
+  # Cool stuff to display in player profile:
+  # TODO: Average Opponent Rating
+  # TODO: Average Opponent Rating when I win or lose
 
   def self.update_ratings(winner, loser)
     current_ratings = {winner: winner.rating.rating, loser: loser.rating.rating}
@@ -23,6 +22,25 @@ class Rating < ActiveRecord::Base
     winner.rating.save
     loser.rating.save
 
+    if winner.rating.highest_ever < winner.rating.rating
+      winner.rating.highest_ever = winner.rating.rating
+      winner.rating.save
+    end
+
+    # if highest_ever_rating(winner)
+    #   winner.rating.highest_ever = winner.rating
+    #   winner.rating.save
+    # end
   end
+
+  # TODO: WHY DOESN'T THIS WORK?? ??
+  # def highest_ever_rating(winner)
+  #   byebug
+  #   if winner.rating.rating > winner.rating.highest_ever
+  #     return true
+  #   else
+  #     return false
+  #   end
+  # end
 
 end

@@ -12,7 +12,7 @@ class Player < ActiveRecord::Base
     self.wins ||= 0
     self.losses ||= 0
     self.games_played ||= 0
-    self.rating ||= Rating.create(rating: 1500)
+    self.rating ||= Rating.create(rating: 1500, highest_ever: 1500)
     # self.provisional_rating = ProvisionalRating.create
   end
 

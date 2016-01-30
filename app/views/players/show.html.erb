@@ -6,12 +6,14 @@
   <li>Games Played: <%= @player.games_played %></li>
   <li>Wins: <%= @player.wins %></li>
   <li>Losses <%= @player.losses %></li>
+  <li>Highest Ever Rating <%= @player.rating.highest_ever %></li>
 </ul>
 
 <h2>Games</h2>
 
 <table>
   <tr>
+    <th>id</th>
     <th>Winner</th>
     <th>Winner Score</th>
     <th>Loser</th>
@@ -19,8 +21,10 @@
     <th>Date</th>
   </tr>
 
-  <% (@player.games_won + @player.games_lost).sort.each do |game| %>
+  <!-- fil: is this the best way to do this? I think a join table would be better here -->
+  <% (@player.games_won + @player.games_lost).sort.reverse.each do |game| %>
     <tr>
+      <td><%= game.id %></td>
       <td><%= game.winner.display_name %></td>
       <td><%= game.winner_score %></td>
       <td><%= game.loser.display_name %></td>
