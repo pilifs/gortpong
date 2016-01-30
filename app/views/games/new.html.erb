@@ -1,0 +1,29 @@
+<h1>New Game</h1>
+
+<%= form_for @game do |f| %>
+
+  <div>
+    <%= f.label :winner_slack %>
+    <%= f.text_field :winner_slack %>
+  </div>
+
+  <div>
+    <%= f.label :winner_score %>
+    <%= f.number_field :winner_score %>
+  </div>
+
+  <div>
+    <%= f.label :loser_slack %>
+    <%= f.text_field :loser_slack %>
+  </div>
+
+  <div>
+    <%= f.label :loser_score %>
+    <%= f.number_field :loser_score %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>
