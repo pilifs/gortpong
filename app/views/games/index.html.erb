@@ -1,0 +1,33 @@
+<!-- TODO: paginate this log to 25/page, possibly allow user to choose how many are displayed per page -->
+
+<h2 style="display: inline-block">Game Log</h2>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>Winner</th>
+    <th>Score</th>
+    <th>Loser</th>
+    <th>Score</th>
+  </tr>
+  <% @games.each do |game| %>
+
+  <tr>
+    <td>
+      <%= game.id %>
+    </td>
+    <td>
+      <%= game.winner_slack %>
+    </td>
+    <td>
+      <%= game.winner_score %>
+    </td>
+    <td>
+      <%= game.loser_slack %>
+    </td>
+    <td>
+      <%= game.loser_score %>
+    </td>
+  </tr>
+
+  <% end %>

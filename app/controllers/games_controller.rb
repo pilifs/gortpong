@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.all
+    @games = Game.all.order(created_at: :desc)
   end
 
   def new
@@ -13,7 +13,7 @@ class GamesController < ApplicationController
     #TODO Ensure winner and loser slack handles both exist
     #TODO Ensure winner score > loser score
     #TODO Ensure winner score >= 21
-  
+
     @game = Game.new(game_params)
 
     if @game.save
