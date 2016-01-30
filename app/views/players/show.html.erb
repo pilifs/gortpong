@@ -7,6 +7,13 @@
   <li>Wins: <%= @player.wins %></li>
   <li>Losses <%= @player.losses %></li>
   <li>Highest Ever Rating <%= @player.rating.highest_ever %></li>
+  <!-- This logic should probably maybe go somewhere else -->
+  <% if @player.rating.avg_opp_rating_win != nil %>
+    <li>Avg opp rating in wins <%= @player.rating.avg_opp_rating_win %></li>
+  <% end %>
+  <% if @player.rating.avg_opp_rating_loss != nil %>
+    <li>Avg opp rating in losses <%= @player.rating.avg_opp_rating_loss %></li>
+  <% end %>
 </ul>
 
 <h2>Games</h2>

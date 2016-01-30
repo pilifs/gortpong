@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130051342) do
+ActiveRecord::Schema.define(version: 20160130054504) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "winner_score"
@@ -44,10 +44,12 @@ ActiveRecord::Schema.define(version: 20160130051342) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "rating"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "player_id"
     t.integer  "highest_ever"
+    t.integer  "avg_opp_rating_win"
+    t.integer  "avg_opp_rating_loss"
   end
 
 end
