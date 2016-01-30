@@ -1,0 +1,32 @@
+<h1><%= @player.display_name %> </h1>
+
+<h2>Stats</h2>
+<ul>
+  <li>Rating: <%= @player.rating.rating %></li>
+  <li>Games Played: <%= @player.games_played %></li>
+  <li>Wins: <%= @player.wins %></li>
+  <li>Losses <%= @player.losses %></li>
+</ul>
+
+<h2>Games</h2>
+
+<table>
+  <tr>
+    <th>Winner</th>
+    <th>Winner Score</th>
+    <th>Loser</th>
+    <th>Loser Score</th>
+    <th>Date</th>
+  </tr>
+
+  <% (@player.games_won + @player.games_lost).sort.each do |game| %>
+    <tr>
+      <td><%= game.winner.display_name %></td>
+      <td><%= game.winner_score %></td>
+      <td><%= game.loser.display_name %></td>
+      <td><%= game.loser_score %></td>
+      <td><%= game.created_at %></td>
+    </tr>
+  <% end %>
+
+</table>
