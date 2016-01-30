@@ -9,6 +9,11 @@ class GamesController < ApplicationController
   end
 
   def create
+    #TODO Ensure winner != loser
+    #TODO Ensure winner and loser slack handles both exist
+    #TODO Ensure winner score > loser score
+    #TODO Ensure winner score >= 21
+  
     @game = Game.new(game_params)
 
     if @game.save
