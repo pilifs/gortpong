@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130054504) do
+ActiveRecord::Schema.define(version: 20160130162314) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "winner_score"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 20160130054504) do
     t.integer  "highest_ever"
     t.integer  "avg_opp_rating_win"
     t.integer  "avg_opp_rating_loss"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
