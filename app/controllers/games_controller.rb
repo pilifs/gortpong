@@ -15,19 +15,21 @@ class GamesController < ApplicationController
     #TODO Ensure winner score >= 21
 
     @game = Game.new(game_params)
-
-    if @game.save
-      redirect_to players_path
+    if @game.user.authenticate(game_params[:password])
+      if @game.save
+        redirect_to players_path
+      else
+        render :new
+      end
     else
+      flash.now[:notice] = "Invalid input."
       render :new
     end
   end
 
   private
-
   def game_params
-    params.require(:game).permit(:winner_slack, :winner_score, :loser_slack, :loser_score)
+    params.require(:game).permit(:winner_slack, :winner_score, :loser_slack, :loser_score, :password)
   end
-
 
 end

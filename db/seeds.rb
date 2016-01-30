@@ -8,6 +8,14 @@
 
 require 'csv'
 
+User.create(
+  {
+    :name => 'submitter',
+    :password => 'gortpong2016'
+  }
+)
+
+
 # Can't get this next line working. Auto updating download link for the spreadsheet.
 # auto_updating_player_csv = 'https://docs.google.com/spreadsheets/d/1okeCXA80gz2U7p-jUhDEoj0hNYD2LaNvFukqKXnhi1o/pub?gid=0&single=true&output=csv'
 # Further reading: http://rambleon.org/2012/08/28/importing-a-google-spreadsheet-into-a-rails-application/
