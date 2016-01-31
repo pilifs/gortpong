@@ -15,18 +15,33 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-
-    if @player.save
-      redirect_to @player
+    if @player.user.authenticate(player_params[:password])
+      if @player.save
+        redirect_to players_path
+      else
+        flash.now[:notice] = "Invalid input."
+        render :new
+      end
     else
       render :new
     end
   end
 
+  # if @game.user.authenticate(game_params[:password])
+  #   if @game.save
+  #     redirect_to players_path
+  #   else
+  #     render :new
+  #   end
+  # else
+  #   flash.now[:notice] = "Invalid input."
+  #   render :new
+  # end
 
-  protected
+
+  private
   def player_params
-    params.require(:player).permit(:slack_handle, :display_name)
+    params.require(:player).permit(:slack_handle, :display_name, :password)
   end
 
 end

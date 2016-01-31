@@ -1,4 +1,9 @@
 class Player < ActiveRecord::Base
+
+  # This is for the key to be submitted with game form
+  attr_accessor :password
+
+  belongs_to :user
   has_many :games_won, :class_name => 'Game', :foreign_key => 'winner_slack', :primary_key => 'slack_handle'
   has_many :games_lost, :class_name => 'Game', :foreign_key => 'loser_slack', :primary_key => 'slack_handle'
 
@@ -8,6 +13,7 @@ class Player < ActiveRecord::Base
   after_initialize :set_defaults
 
   def set_defaults
+    self.user_id ||= 1
     self.wins ||= 0
     self.losses ||= 0
     self.games_played ||= 0

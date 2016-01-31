@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130233713) do
+ActiveRecord::Schema.define(version: 20160131231945) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "winner_score"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160130233713) do
     t.string   "slack_handle"
     t.string   "display_name"
     t.integer  "plus_minus"
+    t.integer  "user_id"
   end
 
   create_table "provisional_ratings", force: :cascade do |t|
