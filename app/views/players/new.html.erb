@@ -3,27 +3,35 @@
 
     <h1 class="main-title">Join Ladder</h1>
 
-    <p>Note that you must input your Bitmaker slack name correctly. This will not be shown anywhere to users unless you want it to be. If you do not know the key, please ask someone or message @filips / @cstaikos on slack.</p>
+    <p>Note that you must input your Bitmaker slack name correctly. For join key please message @filips / @cstaikos on slack.</p>
 
-    <%= form_for @player do |f| %>
+    <%= form_for @player, :html => {:class => 'form-horizontal'} do |f| %>
 
       <div class="form-group">
-        <%= f.label :slack_handle %>
-        <%= f.text_field :slack_handle %>
+        <%= f.label :slack_handle, :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.text_field :slack_handle, :class => 'form-control' %>
+        </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :display_name %>
-        <%= f.text_field :display_name %>
+        <%= f.label :display_name, :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.text_field :display_name, :class => 'form-control' %>
+        </div>
       </div>
 
       <div class="form-group">
-        <%= f.label "Join Key" %>
-        <%= f.password_field :password %>
+          <%= f.label "Join Key", :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.password_field :password, :class => 'form-control' %>
+        </div>
       </div>
 
       <div class="form-group">
-        <%= f.submit %>
+        <div class='col-lg-4 col-lg-offset-2'>
+        <%= f.submit :class => 'btn btn-default' %>
+        </div>
       </div>
 
 

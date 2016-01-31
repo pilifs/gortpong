@@ -6,37 +6,49 @@
 
     <h1 class="main-title">Submit Game Result</h1>
 
-    <p>By submitting this form, you verify that the game in question actually occurred and both participants agree with the result. If you do not know the key, please ask someone or message @filips / @cstaikos on slack.</p>
+    <p>By submitting this form, you verify that the game in question actually occurred and both participants agree with the result. For key please message @filips / @cstaikos on slack.</p>
 
-    <%= form_for @game do |f| %>
+    <%= form_for @game, :html => {:class => 'form-horizontal'} do |f| %>
 
       <div class="form-group">
-        <%= f.label :winner_slack %>
-        <%= f.text_field :winner_slack %>
+        <%= f.label :winner_slack, :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.text_field :winner_slack, :class => 'form-control' %>
+        </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :winner_score %>
-        <%= f.number_field :winner_score %>
+        <%= f.label :winner_score, :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.number_field :winner_score, :class => 'form-control' %>
+        </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :loser_slack %>
-        <%= f.text_field :loser_slack %>
+        <%= f.label :loser_slack, :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.text_field :loser_slack, :class => 'form-control' %>
+        </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :loser_score %>
-        <%= f.number_field :loser_score %>
+        <%= f.label :loser_score, :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.number_field :loser_score, :class => 'form-control' %>
+        </div>
       </div>
 
       <div class="form-group">
-        <%= f.label 'Submit key' %>
-        <%= f.password_field :password %>
+        <%= f.label 'Submit key', :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.password_field :password, :class => 'form-control' %>
+        </div>
       </div>
 
-      <div>
-        <%= f.submit %>
+      <div class="form-group">
+        <div class='col-lg-4 col-lg-offset-2'>
+        <%= f.submit :class => 'btn btn-default' %>
+        </div>
       </div>
 
     <% end %>
