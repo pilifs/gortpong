@@ -30,6 +30,27 @@ body {
   background: #023605;
 }
 
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -30px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+// /* Set the fixed height of the footer here */
+// .footer {
+//   height: 30px;
+// }
+
 // h1 {
 //   text-align: center;
 //   .supporting-text {
@@ -94,7 +115,6 @@ a.dark:hover {
 .full-width-content {
   background-color: #FFFFFF;
   border: 1px solid #ddd;
-  padding-top: 10px;
   padding-bottom: 10px;
 }
 

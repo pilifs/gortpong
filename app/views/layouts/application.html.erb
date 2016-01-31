@@ -8,31 +8,33 @@
 </head>
 <body>
 
-<div class="container">
-  <header>
-    <div class="logo pull-left">
-      <%= link_to image_tag("gortpong-draft.png", class: 'img-logo'), root_path %>
-    </div>
-    <nav class="btn-group-vertical pull-right main-nav">
-      <%= link_to 'Add Game', new_game_path, class: "btn btn-primary" %>
-      <%= link_to 'Join Ladder', new_player_path, class: "btn btn-primary" %>
-      <%= link_to 'Rules', rules_path, class: "btn btn-primary" %>
-      <%= link_to 'About', about_path, class: "btn btn-primary" %>
-    </nav>
-    <%= render 'ataglance' %>
-  </header>
-</div>
-
-<div class="container row">
-  <%= yield %>
-</div>
-
-
-<footer class="footer">
+<div id="wrap">
   <div class="container">
-    <p class="text-muted center">&copy; GortPong 2016. <%= link_to 'View source', '#', class: 'dark' %> @ github and <%= link_to 'planned features', '#', class: 'dark' %> @ trello. To contribute, please message us on slack or github!</p>
+    <header>
+      <div class="logo pull-left">
+        <%= link_to image_tag("gortpong-draft.png", class: 'img-logo'), root_path %>
+      </div>
+      <nav class="btn-group-vertical pull-right main-nav">
+        <%= link_to 'Add Game', new_game_path, class: "btn btn-primary" %>
+        <%= link_to 'Join Ladder', new_player_path, class: "btn btn-primary" %>
+        <%= link_to 'Rules', rules_path, class: "btn btn-primary" %>
+        <%= link_to 'About', about_path, class: "btn btn-primary" %>
+      </nav>
+      <%= render 'ataglance' %>
+    </header>
   </div>
-</footer>
+
+  <div class="container row">
+    <%= yield %>
+  </div>
+
+</div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted center">&copy; GortPong 2016. <%= link_to 'View source', '#', class: 'dark' %> @ github and <%= link_to 'planned features', '#', class: 'dark' %> @ trello. To contribute, please message us on slack or github!</p>
+    </div>
+  </footer>
 
 
 </body>
