@@ -16,3 +16,60 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.body-content {
+  width: 75%;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  .supporting-text {
+    font-size: 15px;
+    font-weight: normal;
+  }
+}
+
+header {
+  height: 100px;
+  padding-top: 45px;
+}
+
+.logo {
+  float: left;
+  img {
+    width: 100px;
+  }
+}
+
+.main-nav {
+  float: left;
+  ul {
+    list-style-type: none;
+    // float: left;
+    li {
+      float: left;
+    }
+  }
+}
+
+.list-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: center;
+
+  tr {
+    height: 20px;
+
+    th {
+      text-align: center;
+    }
+
+    td {
+      padding: 8px;
+      border-top: 1px solid black;
+    }
+  }
+
+}

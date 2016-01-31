@@ -8,9 +8,41 @@
 </head>
 <body>
 
-<%= link_to image_tag("gortpong-draft.png"), root_path %>
+<div class="container">
+  <header>
 
-<%= yield %>
+    <div class="logo">
+      <%= link_to image_tag("gortpong-draft.png"), root_path %>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li>
+
+        </li>
+        <li>
+          <%= link_to 'Log Game', new_game_path, class: "btn btn-primary" %>
+        </li>
+      </ul>
+    </nav>
+
+
+  </header>
+</div>
+
+<div class="container">
+
+  <div class="body-content">
+    <%= yield %>
+  <div>
+
+</div>
+
+<div class="container">
+  <footer>
+
+  </footer>
+</div>
 
 </body>
 </html>
