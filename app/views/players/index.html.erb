@@ -1,8 +1,6 @@
-<h1>Rankings</h1>
+<h1>GortPong Ladder</h1>
 
-<%= link_to 'Log Game', new_game_path %>
-
-<table>
+<table class="list-table">
   <tr>
     <th>Name</th>
     <th>Wins</th>
@@ -34,11 +32,16 @@
 
 </table>
 
-<h2 style="display: inline-block">Game Log</h2> <span>(last 10)</span>
+<h1>
+  Game Log
+  <span class="supporting-text">(last 10)
+    <%= link_to "See All", games_path %>
+  </span>
+</h1>
 
-<table>
+<table class="list-table">
   <tr>
-    <th>id</th>
+    <!-- <th>id</th> -->
     <th>Winner</th>
     <th>Score</th>
     <th>Loser</th>
@@ -47,11 +50,11 @@
   <% @games.each do |game| %>
 
   <tr>
+    <!-- <td>
+      <%#= game.id %>
+    </td> -->
     <td>
-      <%= game.id %>
-    </td>
-    <td>
-      <%= game.winner.display_name %>
+      <%= link_to game.winner.display_name, game.winner %>
     </td>
     <td>
       <%= game.winner_score %>
@@ -65,5 +68,3 @@
   </tr>
 
   <% end %>
-
-  <%= link_to "See All", games_path %>
