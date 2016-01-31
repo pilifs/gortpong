@@ -1,12 +1,14 @@
 <div class="col-md-8">
   <table class="table table-hover table-bordered">
     <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Wins</th>
-      <th>Losses</th>
-      <th>Games Played</th>
-      <th>Rating</th>
+      <th class="table-top-row">#</th>
+      <th class="table-top-row">Name</th>
+      <th class="table-top-row">Wins</th>
+      <th class="table-top-row">Losses</th>
+      <th class="table-top-row">Games</th>
+      <!-- <th class="table-top-row">Avg Pts For</th> -->
+      <!-- <th class="table-top-row">Avg Pts Agst</th> -->
+      <th class="table-top-row">Rating</th>
     </tr>
     <% @players.each_with_index do |player, index| %>
 
@@ -30,25 +32,17 @@
     </tr>
 
     <% end %>
-
   </table>
 </div>
+
 <div class="col-md-4">
-  <!-- <h1>
-    Game Log
-    <span class="supporting-text">(last 10)
-      <%#= link_to "See All", games_path %>
-    </span>
-  </h1> -->
-
-
   <table class="table table-hover table-bordered">
     <tr>
-      <th>id</th>
-      <th>Winner</th>
-      <th>Score</th>
-      <th>Loser</th>
-      <th>Score</th>
+      <th class="table-top-row">#</th>
+      <th class="table-top-row">Winner</th>
+      <th class="table-top-row">Score</th>
+      <th class="table-top-row">Loser</th>
+      <th class="table-top-row">Score</th>
     </tr>
     <% @games.each do |game| %>
 
@@ -63,12 +57,12 @@
         <%= game.winner_score %>
       </td>
       <td>
-        <%= game.loser.display_name %>
+        <%= link_to game.loser.display_name, game.loser %>
       </td>
       <td>
         <%= game.loser_score %>
       </td>
     </tr>
-  </div>
-
   <% end %>
+  </table>
+</div>

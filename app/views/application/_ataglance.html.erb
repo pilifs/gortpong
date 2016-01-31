@@ -1,13 +1,9 @@
-<!-- 6 statboxes, 2 cols each, list should be unstyled with essentially no spacing between names -->
-<!-- Div can be styled with something interesting like drop shadow or a border. Depends on our colour scheme -->
-<!-- TODO: Figure out how to pass variables into this -->
-
 <div class="at-a-glance">
   <div class="col-md-2 stat-wrapper">
     <div class="statbox">
       PLUS / MINUS
-      <% @plus_minus.each do |p| %>
-        <%= "#{p.display_name} #{p.plus_minus}" %>
+      <% @ag_plus_minus.each do |player| %>
+        <%= link_to player.display_name, player %> <%= "#{player.plus_minus}" %>
       <% end %>
     </div>
   </div>

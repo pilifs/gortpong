@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
   before_filter :at_a_glance
 
   def at_a_glance
-    @plus_minus = Player.all.order(plus_minus: :desc).limit(3)
+    @ag_plus_minus = Player.all.order(plus_minus: :desc).limit(3)
+    @ag_movers = Array.new(2) {|index| index = "coming soon"}
+    @ag_toughest_opponents
+    @ag_weekly_wins
+
   end
 
 end
