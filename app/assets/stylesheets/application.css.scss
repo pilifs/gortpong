@@ -17,10 +17,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background: url('strange_bullseyes_@2X.png')
+}
 .body-content {
   width: 75%;
   margin: 0 auto;
 }
+
 
 h1 {
   text-align: center;
@@ -49,6 +53,7 @@ header {
     // float: left;
     li {
       float: left;
+      margin-right: 30px;
     }
   }
 }
