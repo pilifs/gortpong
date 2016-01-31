@@ -13,6 +13,7 @@ class Game < ActiveRecord::Base
   after_create :update_players
 
   def set_defaults
+    # Sets a user ID for "submitter" key
     self.user_id ||= 1
   end
 
@@ -29,11 +30,9 @@ class Game < ActiveRecord::Base
   # end
 
   def update_players
-    self.winner.increment!(:wins)
-    self.winner.increment!(:games_played)
-    self.loser.increment!(:losses)
-    self.loser.increment!(:games_played)
+    score_difference = winner_score - loser_score
     Rating.update_ratings(winner, loser)
+    Player.update_stats(winner, loser, score_difference)
   end
 
 
