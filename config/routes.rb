@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   resources :players, :games
 
+  get '/about' => 'static_pages#about', as: 'about'
+  get '/rules' => 'static_pages#rules', as: 'rules'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

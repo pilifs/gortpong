@@ -6,27 +6,27 @@
 
 <%= form_for @game do |f| %>
 
-  <div>
+  <div class="form-group">
     <%= f.label :winner_slack %>
     <%= f.text_field :winner_slack %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :winner_score %>
     <%= f.number_field :winner_score %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :loser_slack %>
     <%= f.text_field :loser_slack %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :loser_score %>
     <%= f.number_field :loser_score %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label 'Submit key' %>
     <%= f.password_field :password %>
   </div>
