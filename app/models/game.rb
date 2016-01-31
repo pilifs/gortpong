@@ -1,12 +1,11 @@
 class Game < ActiveRecord::Base
 
+  # This is for the key to be submitted with game form
   attr_accessor :password
 
   belongs_to :user
   belongs_to :winner, :class_name => 'Player', :foreign_key => 'winner_slack', :primary_key => 'slack_handle'
   belongs_to :loser, :class_name => 'Player', :foreign_key => 'loser_slack', :primary_key => 'slack_handle'
-
-  accepts_nested_attributes_for :user
 
   after_initialize :set_defaults
   # before_validation :slack_to_id

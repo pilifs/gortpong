@@ -1,0 +1,31 @@
+<!-- 6 statboxes, 2 cols each, list should be unstyled with essentially no spacing between names -->
+<!-- Div can be styled with something interesting like drop shadow or a border. Depends on our colour scheme -->
+
+<div class="statbox">
+  <h4>PLUS / MINUS</h4>
+  <% @players.order(plus_minus: :desc).limit(3).each do |p| %>
+    <ul>
+      <li><%= "#{p.display_name} #{p.plus_minus}" %></li>
+    </ul>
+  <% end %>
+</div>
+
+<div class="statbox">
+
+</div>
+
+<div class="statbox">
+  Test
+</div>
+
+<div class="statbox">
+  Test
+</div>
+
+<div class="statbox">
+  Test
+</div>
+
+<div class="statbox">
+  Test
+</div>

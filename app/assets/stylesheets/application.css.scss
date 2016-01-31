@@ -20,8 +20,8 @@
 body {
   background: url('strange_bullseyes_@2X.png')
 }
-.body-content {
-  width: 75%;
+.container {
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -42,7 +42,7 @@ header {
 .logo {
   float: left;
   img {
-    width: 100px;
+    width: 300px;
   }
 }
 
@@ -56,25 +56,4 @@ header {
       margin-right: 30px;
     }
   }
-}
-
-.list-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-  text-align: center;
-
-  tr {
-    height: 20px;
-
-    th {
-      text-align: center;
-    }
-
-    td {
-      padding: 8px;
-      border-top: 1px solid black;
-    }
-  }
-
 }
