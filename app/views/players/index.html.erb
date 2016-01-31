@@ -1,69 +1,74 @@
+<div class="col-md-8">
+  <table class="table table-hover table-bordered">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Games Played</th>
+      <th>Rating</th>
+    </tr>
+    <% @players.each do |player| %>
 
-<table class="main-ratings list-table">
-  <tr>
-    <th>Name</th>
-    <th>Wins</th>
-    <th>Losses</th>
-    <th>Games Played</th>
-    <th>Rating</th>
-  </tr>
-  <% @players.each do |player| %>
+    <tr>
+      <th scope="row">1</th>
+      <td>
+        <%= link_to player.display_name, player %>
+      </td>
+      <td>
+        <%= player.wins %>
+      </td>
+      <td>
+        <%= player.losses %>
+      </td>
+      <td>
+        <%= player.games_played %>
+      </td>
+      <td>
+        <strong><%= player.rating.rating %></strong>
+      </td>
+    </tr>
 
-  <tr>
-    <td>
-      <%= link_to player.display_name, player %>
-    </td>
-    <td>
-      <%= player.wins %>
-    </td>
-    <td>
-      <%= player.losses %>
-    </td>
-    <td>
-      <%= player.games_played %>
-    </td>
-    <td>
-      <%= player.rating.rating %>
-    </td>
-  </tr>
+    <% end %>
 
-  <% end %>
+  </table>
+</div>
+<div class="col-md-4">
+  <!-- <h1>
+    Game Log
+    <span class="supporting-text">(last 10)
+      <%#= link_to "See All", games_path %>
+    </span>
+  </h1> -->
 
-</table>
 
-<h1>
-  Game Log
-  <span class="supporting-text">(last 10)
-    <%= link_to "See All", games_path %>
-  </span>
-</h1>
+  <table class="table table-hover table-bordered">
+    <tr>
+      <th>id</th>
+      <th>Winner</th>
+      <th>Score</th>
+      <th>Loser</th>
+      <th>Score</th>
+    </tr>
+    <% @games.each do |game| %>
 
-<table class="game-log list-table">
-  <tr>
-    <!-- <th>id</th> -->
-    <th>Winner</th>
-    <th>Score</th>
-    <th>Loser</th>
-    <th>Score</th>
-  </tr>
-  <% @games.each do |game| %>
-
-  <tr>
-    <!-- <td>
-      <%#= game.id %>
-    </td> -->
-    <td>
-      <%= link_to game.winner.display_name, game.winner %>
-    </td>
-    <td>
-      <%= game.winner_score %>
-    </td>
-    <td>
-      <%= game.loser.display_name %>
-    </td>
-    <td>
-      <%= game.loser_score %>
-    </td>
-  </tr>
+    <tr>
+      <th scope="row">
+        <%= game.id %>
+      </th>
+      <td>
+        <%= link_to game.winner.display_name, game.winner %>
+      </td>
+      <td>
+        <%= game.winner_score %>
+      </td>
+      <td>
+        <%= game.loser.display_name %>
+      </td>
+      <td>
+        <%= game.loser_score %>
+      </td>
+    </tr>
+  </div>
 
   <% end %>

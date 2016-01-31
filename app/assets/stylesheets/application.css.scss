@@ -14,14 +14,21 @@
  *= require_self
  */
 
+@import "normalize";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+// F rounded corners
+* {
+  border-radius: 0 !important;
+}
+
+
 body {
-  background: url('strange_bullseyes_@2X.png')
+  // background: url('strange_bullseyes_@2X.png')
 }
 .container {
-  width: 1200px;
   margin: 0 auto;
 }
 
@@ -35,25 +42,14 @@ h1 {
 }
 
 header {
-  height: 100px;
-  padding-top: 45px;
+  height: 175px;
+  padding-top: 15px;
 }
 
 .logo {
   float: left;
-  img {
-    width: 300px;
-  }
 }
 
 .main-nav {
-  float: left;
-  ul {
-    list-style-type: none;
-    // float: left;
-    li {
-      float: left;
-      margin-right: 30px;
-    }
-  }
+  padding-right: 15px;
 }

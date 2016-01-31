@@ -10,36 +10,23 @@
 
 <div class="container">
   <header>
-    
-    <div class="logo">
+
+    <div class="col-md-2">
       <%= link_to image_tag("gortpong-draft.png"), root_path %>
     </div>
 
-    <nav class="main-nav">
-      <ul>
-        <li>
-          <%= link_to 'View Rankings', root_url, class: "btn btn-primary" %>
-        </li>
-        <li>
-          <%= link_to 'Log Game', new_game_path, class: "btn btn-primary" %>
-        </li>
-        <li>
-          <%= link_to 'New Player', new_player_path, class: "btn btn-primary" %>
-        </li>
-        <li>
-          <%= link_to 'Ladder Rules', rules_path, class: "btn btn-primary" %>
-        </li>
-        <!-- <li>
-          <%= link_to 'About', about_path, class: "btn btn-primary" %>
-        </li> -->
-      </ul>
+    <nav class="btn-group-vertical pull-right main-nav">
+      <%= link_to 'Add Game', new_game_path, class: "btn btn-primary" %>
+      <%= link_to 'Join Ladder', new_player_path, class: "btn btn-primary" %>
+      <%= link_to 'Rules', rules_path, class: "btn btn-primary" %>
+      <%= link_to 'About', root_url, class: "btn btn-primary" %>
     </nav>
   </header>
 
 
   <div class="body-content">
     <%= yield %>
-  <div>
+  </div>
 
 
   <footer>
