@@ -8,10 +8,10 @@
       <th>Games Played</th>
       <th>Rating</th>
     </tr>
-    <% @players.each do |player| %>
+    <% @players.each_with_index do |player, index| %>
 
     <tr>
-      <th scope="row">1</th>
+      <th scope="row"><%= index + 1 %></th>
       <td>
         <%= link_to player.display_name, player %>
       </td>
