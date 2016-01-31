@@ -17,6 +17,7 @@
 @import "normalize";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "ataglance";
 
 
 // F rounded corners
@@ -28,18 +29,18 @@
 body {
   // background: url('strange_bullseyes_@2X.png')
 }
+
 .container {
   margin: 0 auto;
 }
 
-
-h1 {
-  text-align: center;
-  .supporting-text {
-    font-size: 15px;
-    font-weight: normal;
-  }
-}
+// h1 {
+//   text-align: center;
+//   .supporting-text {
+//     font-size: 15px;
+//     font-weight: normal;
+//   }
+// }
 
 header {
   height: 175px;
@@ -47,9 +48,11 @@ header {
 }
 
 .logo {
-  float: left;
+  width: 26%;
+  display: inline-block;
 }
 
 .main-nav {
   padding-right: 15px;
+  padding-top: 5px;
 }
