@@ -1,10 +1,12 @@
 <!-- 6 statboxes, 2 cols each, list should be unstyled with essentially no spacing between names -->
 <!-- Div can be styled with something interesting like drop shadow or a border. Depends on our colour scheme -->
+<!-- TODO: Figure out how to pass variables into this -->
+
 <div class="at-a-glance">
-  <div class="col-md-2 stat-wrapper first-box">
+  <div class="col-md-2 stat-wrapper">
     <div class="statbox">
       PLUS / MINUS
-      <% @players.order(plus_minus: :desc).limit(3).each do |p| %>
+      <% @plus_minus.each do |p| %>
         <%= "#{p.display_name} #{p.plus_minus}" %>
       <% end %>
     </div>
@@ -12,7 +14,7 @@
 
   <div class="col-md-2 stat-wrapper">
     <div class="statbox">
-      Test
+      BIGGEST MOVERS
     </div>
   </div>
 
@@ -28,7 +30,7 @@
     </div>
   </div>
 
-  <div class="col-md-2 stat-wrapper last-box">
+  <div class="col-md-2 stat-wrapper">
     <div class="statbox">
       Test
     </div>
