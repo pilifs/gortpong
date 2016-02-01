@@ -1,38 +1,40 @@
 // TODO: setup actual responsiveness for at a glance stats. This involves making the logo responsive and hiding some boxes as the view gets smaller. For now just hide for laptop size and lower.
 
-@media all {
-  .at-a-glance {
-    display: block;
-    width: 63.5%;
-    float: left;
-    padding-left: 6px;
-    padding-right: 6px;
+  .at-a-glance-outer {
+    margin-bottom: 15px;
+    margin-top: 10px;
+
+    .statbox-wrapper {
+      padding: 5px;
+
+      div {
+        height: 134px;
+        border-radius: 2px;
+        background: #ffffff;
+
+        table {
+          height: 100%;
+          tr {
+            td {
+              padding: 2px;
+              font-size: 13px;
+              line-height: 1;
+              vertical-align: middle;
+            }
+            td:first-child {
+              width: 90%
+            }
+            td:last-child {
+              text-align: right;
+            }
+          }
+        }
+      }
+
+      h6 {
+        margin: -5px 0px 5px 0px;
+      }
+    }
+
+
   }
-
-  .statbox {
-    height: 134px;
-    border: 1px solid #ddd;
-    width: 100%;
-    padding: 5px;
-    background: #ffffff;
-  }
-
-  .stat-wrapper {
-    width: 20%;
-    padding-top: 5px;
-    padding-left: 6px;
-    padding-right: 6px;
-  }
-}
-
-@media screen and (max-width: 1200px) {
- .at-a-glance {
-    display: none;
- }
-}
-
-@media screen and (max-width: 992px) {
- .at-a-glance {
-    display: none;
- }
-}
