@@ -9,10 +9,32 @@
 
       div {
         height: 134px;
-        border: 1px solid #ddd;
         border-radius: 2px;
         background: #ffffff;
+
+        table {
+          height: 100%;
+          tr {
+            td {
+              padding: 2px;
+              font-size: 13px;
+              line-height: 1;
+              vertical-align: middle;
+            }
+            td:first-child {
+              width: 90%
+            }
+            td:last-child {
+              text-align: right;
+            }
+          }
+        }
+      }
+
+      h6 {
+        margin: -5px 0px 5px 0px;
       }
     }
+
 
   }

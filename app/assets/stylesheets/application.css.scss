@@ -19,8 +19,8 @@
 @import "bootstrap";
 @import "ataglance";
 
-$primary-background: #4f524f;
-$secondary-background: #801515;
+$primary-background: #7c7d7c;
+$secondary-background: #701515;
 $primary-font-color: #000000;
 $link-font-color: #801515;
 
@@ -61,16 +61,18 @@ body {
 
 .main-header {
   background-color: $secondary-background;
-}
 
-header {
-  height: 90px;
-  padding-top: 10px;
   * {
     font-size: 20px;
     font-weight: bold;
     color: $primary-font-color;
   }
+
+}
+
+header {
+  height: 90px;
+  padding-top: 10px;
 }
 
 .main-nav {
@@ -102,10 +104,11 @@ header {
 a {
   color: $link-font-color;
 
-  :hover, :focus {
-    color: #110a3c;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $primary-font-color;
   }
-
 
 }
 
@@ -126,10 +129,6 @@ a.dark {
   background-color: #150d4a;
   border-color: #0d082d;
 }
-//
-// .container {
-//   margin: 0 auto;
-// }
 
 .full-width-content {
   background-color: #FFFFFF;
