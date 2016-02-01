@@ -1,7 +1,15 @@
 <div class="col-lg-12">
   <div class="col-lg-12 full-width-content">
-    <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
+
+    <% if @player.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <ul>
+        <% @player.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+
     <% end %>
 
     <h1 class="main-title">Join Ladder</h1>

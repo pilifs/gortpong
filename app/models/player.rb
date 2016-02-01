@@ -12,6 +12,8 @@ class Player < ActiveRecord::Base
 
   after_initialize :set_defaults
 
+  validates :slack_handle, :display_name, presence: true
+
   def set_defaults
     self.user_id ||= 1
     self.wins ||= 0
@@ -34,8 +36,8 @@ class Player < ActiveRecord::Base
     winner.increment!(:win_streak)
     loser.win_streak = 0
 
-    winner.avg_score(winner, loser)
-    loser.avg_score(winner, loser)
+    # winner.avg_score(winner, loser)
+    # loser.avg_score(winner, loser)
 
     winner.plus_minus += score_difference
     loser.plus_minus = loser.plus_minus - score_difference
