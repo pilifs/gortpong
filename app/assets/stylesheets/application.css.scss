@@ -36,6 +36,12 @@ body {
   /* The html and body elements cannot have any padding or margin. */
 }
 
+.main-section {
+  padding: 15px;
+  background: white;
+  border: 1px solid #ddd;
+}
+
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
@@ -128,12 +134,6 @@ a.dark {
 .btn-primary:hover {
   background-color: #150d4a;
   border-color: #0d082d;
-}
-
-.full-width-content {
-  background-color: #FFFFFF;
-  border: 1px solid #ddd;
-  padding-bottom: 10px;
 }
 
 .center {
