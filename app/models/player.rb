@@ -17,6 +17,7 @@ class Player < ActiveRecord::Base
     self.wins ||= 0
     self.losses ||= 0
     self.games_played ||= 0
+    self.win_streak ||= 0
     self.plus_minus ||= 0
     self.rating ||= Rating.create(rating: 1500, highest_ever: 1500)
     # self.provisional_rating = ProvisionalRating.create
@@ -26,8 +27,12 @@ class Player < ActiveRecord::Base
 
     winner.increment!(:wins)
     winner.increment!(:games_played)
+
     loser.increment!(:losses)
     loser.increment!(:games_played)
+
+    winner.increment!(:win_streak)
+    loser.win_streak = 0
 
     winner.plus_minus += score_difference
     loser.plus_minus = loser.plus_minus - score_difference
