@@ -34,11 +34,18 @@ class Player < ActiveRecord::Base
     winner.increment!(:win_streak)
     loser.win_streak = 0
 
+    winner.avg_score(winner, loser)
+    loser.avg_score(winner, loser)
+
     winner.plus_minus += score_difference
     loser.plus_minus = loser.plus_minus - score_difference
 
     winner.save
     loser.save
+  end
+
+  def avg_score
+
   end
 
 end

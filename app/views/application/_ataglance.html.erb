@@ -24,21 +24,28 @@
   </div>
 
   <div class="statbox-wrapper col-xs-6 col-sm-4 col-md-3 col-lg-2">
-    <h6>STATS</h6>
+    <h6>ACTIVE WIN STREAK</h6>
+    <div>
+      <table class="table table-hover table-bordered">
+        <% @ag_winning_streak.each do |player| %>
+          <tr>
+            <td><%= link_to player.display_name, player %></td>
+            <td><%= "#{player.win_streak}" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+  <div class="statbox-wrapper hidden-xs col-sm-4 col-md-3 col-lg-2 ">
+    <h6>TOUGHEST OPPONENTS</h6>
     <div>
 
     </div>
   </div>
 
   <div class="statbox-wrapper hidden-xs col-sm-4 col-md-3 col-lg-2 ">
-    <h6>STATS</h6>
-    <div>
-
-    </div>
-  </div>
-
-  <div class="statbox-wrapper hidden-xs col-sm-4 col-md-3 col-lg-2 ">
-    <h6>STATS</h6>
+    <h6>AVG POINTS PER GAME</h6>
     <div>
 
     </div>
