@@ -1,10 +1,6 @@
 class Rating < ActiveRecord::Base
   belongs_to :player
 
-  # Cool stuff to display in player profile:
-  # TODO: Average Opponent Rating
-  # TODO: Average Opponent Rating when I win or lose
-
   def self.update_ratings(winner, loser)
     current_ratings = {winner: winner.rating.rating, loser: loser.rating.rating}
 
@@ -42,7 +38,30 @@ class Rating < ActiveRecord::Base
     # end
   end
 
-  # TODO: DRY refactor
+  # TODO: DRY refactor... badly. This will be fixed soon. Just wanted to get it working for at a glance stats asap.
+  # def calculate_avg_opp_rating(winner, loser)
+  #   if winner.rating.avg_opp_rating == nil
+  #     winner.rating.avg_opp_rating = loser.rating.rating
+  #     winner.rating.save
+  #   else
+  #     current_average = winner.rating.avg_opp_rating
+  #     games_played = winner.games_played -1
+  #     total = current_average * games_played + loser_rating
+  #     winner.rating.avg_opp_rating = total / (games_played + 1)
+  #     winner.rating.save
+  #   end
+  #   if loser.rating.avg_opp_rating == nil
+  #     loser.rating.avg_opp_rating = winner.rating.rating
+  #     loser.rating.save
+  #   else
+  #     current_average = loser.rating.avg_opp_rating
+  #     games_played = loser.games_played -1
+  #     total = current_average * games_played + loser_rating
+  #     loser.rating.avg_opp_rating = total / (games_played + 1)
+  #     loser.rating.save
+  #   end
+  # end
+
   def calculate_avg_opp_rating_win(winning_player, loser_rating)
     if winning_player.rating.avg_opp_rating_win == nil
       winning_player.rating.avg_opp_rating_win = loser_rating

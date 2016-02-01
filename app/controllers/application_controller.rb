@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     @ag_plus_minus = Player.all.order(plus_minus: :desc).limit(3)
     @ag_toughest_opponents #
     @ag_winning_streak = Player.all.order(win_streak: :desc).limit(3)
-    @ag_avg_points
+    @ag_avg_points #
     @ag_weekly_games # Games played this week
     @ag_weekly_rating_gain = Array.new(2) {|index| index = "coming soon"}
   end
