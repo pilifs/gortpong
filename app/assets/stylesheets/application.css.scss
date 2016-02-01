@@ -19,15 +19,15 @@
 @import "bootstrap";
 @import "ataglance";
 
+$primary-background: #4f524f;
+$secondary-background: #801515;
+$primary-font-color: #000000;
+$link-font-color: #801515;
 
-// F rounded corners
-* {
-  border-radius: 0 !important;
-}
 
 
 body {
-  background: #023605;
+  background: $primary-background;
 }
 
 html,
@@ -59,19 +59,36 @@ body {
 //   }
 // }
 
-header {
-  height: 175px;
-  padding-top: 15px;
+.main-header {
+  background-color: $secondary-background;
 }
 
-.logo {
-  width: 26%;
-  display: inline-block;
+header {
+  height: 90px;
+  padding-top: 10px;
+  * {
+    font-size: 20px;
+    font-weight: bold;
+    color: $primary-font-color;
+  }
 }
 
 .main-nav {
-  padding-right: 15px;
-  padding-top: 5px;
+  ul {
+    list-style-type: none;
+    li {
+      float: left;
+      padding-left: 30px;
+      padding-top: 20px;
+    }
+  }
+}
+
+.logo {
+  img {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .table {
@@ -83,19 +100,21 @@ header {
 }
 
 a {
-  color: #1d1267;
-}
+  color: $link-font-color;
 
-a:hover, a:focus {
-  color: #110a3c;
+  :hover, :focus {
+    color: #110a3c;
+  }
+
+
 }
 
 a.dark {
   color: #FFFFFF;
-}
 
-a.dark:hover {
-  color: #DDDDDD;
+  :hover {
+    color: #DDDDDD;
+  }
 }
 
 .btn-primary {
@@ -107,10 +126,10 @@ a.dark:hover {
   background-color: #150d4a;
   border-color: #0d082d;
 }
-
-.container {
-  margin: 0 auto;
-}
+//
+// .container {
+//   margin: 0 auto;
+// }
 
 .full-width-content {
   background-color: #FFFFFF;

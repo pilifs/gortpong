@@ -1,6 +1,16 @@
-<div class="at-a-glance">
-  <div class="col-md-2 stat-wrapper">
+<div class="row at-a-glance-outer">
+
+  <!-- <div class="col-xs-2 stat-wrapper">
     <div class="statbox">
+      PLUS / MINUS
+      <% @ag_plus_minus.each do |player| %>
+        <%= link_to player.display_name, player %> <%= "#{player.plus_minus}" %>
+      <% end %>
+    </div>
+  </div> -->
+
+  <div class="statbox-wrapper col-xs-6 col-sm-4 col-md-3 col-lg-2">
+    <div>
       PLUS / MINUS
       <% @ag_plus_minus.each do |player| %>
         <%= link_to player.display_name, player %> <%= "#{player.plus_minus}" %>
@@ -8,27 +18,33 @@
     </div>
   </div>
 
-  <div class="col-md-2 stat-wrapper">
-    <div class="statbox">
+  <div class="statbox-wrapper col-xs-6 col-sm-4 col-md-3 col-lg-2">
+    <div>
       BIGGEST MOVERS
     </div>
   </div>
 
-  <div class="col-md-2 stat-wrapper">
-    <div class="statbox">
-      Test
+  <div class="statbox-wrapper hidden-xs col-sm-4 col-md-3 col-lg-2 ">
+    <div>
+      TEST
     </div>
   </div>
 
-  <div class="col-md-2 stat-wrapper">
-    <div class="statbox">
-      Test
+  <div class="statbox-wrapper hidden-xs hidden-sm col-md-3 col-lg-2">
+    <div>
+      TEST
     </div>
   </div>
 
-  <div class="col-md-2 stat-wrapper">
-    <div class="statbox">
-      Test
+  <div class="statbox-wrapper hidden-xs hidden-sm hidden-md col-lg-2">
+    <div>
+      TEST
+    </div>
+  </div>
+
+  <div class="statbox-wrapper hidden-xs hidden-sm hidden-md col-lg-2">
+    <div>
+      TEST
     </div>
   </div>
 

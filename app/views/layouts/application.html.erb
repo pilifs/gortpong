@@ -9,22 +9,32 @@
 <body>
 
 <div id="wrap">
-  <div class="container">
-    <header>
-      <div class="logo pull-left">
-        <%= link_to image_tag("gortpong-draft.png", class: 'img-logo'), root_path %>
-      </div>
-      <nav class="btn-group-vertical pull-right main-nav">
-        <%= link_to 'Add Game', new_game_path, class: "btn btn-primary" %>
-        <%= link_to 'Join Ladder', new_player_path, class: "btn btn-primary" %>
-        <%= link_to 'Rules', rules_path, class: "btn btn-primary" %>
-        <%= link_to 'About', about_path, class: "btn btn-primary" %>
-      </nav>
-      <%= render 'ataglance' %>
-    </header>
+  <div class="main-header">
+    <div class="container">
+      <header>
+        <div class="logo pull-left">
+          <%= link_to image_tag("http://www.fillmurray.com/70/70", class: 'img-logo'), root_path %>
+          <%= link_to 'GortPong', root_path %>
+        </div>
+
+        <nav class="pull-right main-nav">
+          <ul>
+            <li><%= link_to 'Add Game', new_game_path %></li>
+            <li><%= link_to 'Join Ladder', new_player_path %></li>
+            <li><%= link_to 'Rules', rules_path %></li>
+            <li><%= link_to 'About', about_path %></li>
+          </ul>
+        </nav>
+
+      </header>
+    </div>
   </div>
 
-  <div class="container row">
+  <div class="container">
+    <%= render 'ataglance' %>
+  </div>
+
+  <div class="container">
     <%= yield %>
   </div>
 
