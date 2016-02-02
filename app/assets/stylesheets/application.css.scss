@@ -141,10 +141,12 @@ a.dark {
 
   &:hover {
     background-color: #fdff8c;
+    color: black !important;
   }
 
   &:active {
     background-color: #dcde7a;
+    color: black !important;
   }
 
 }
