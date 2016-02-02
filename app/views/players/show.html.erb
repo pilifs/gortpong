@@ -7,7 +7,7 @@
     <li>Games Played: <%= @player.games_played %></li>
     <li>Wins: <%= @player.wins %></li>
     <li>Losses <%= @player.losses %></li>
-    <li>Plus/Minus: <%= @player.plus_minus %> </li
+    <li>Plus/Minus: <%= @player.plus_minus %> </li>
     <li>Highest Ever Rating <%= @player.rating.highest_ever %></li>
     <!-- This logic should probably maybe go somewhere else -->
     <% if @player.rating.avg_opp_rating_win != nil %>
@@ -20,14 +20,14 @@
 
   <h2>Games</h2>
 
-  <table class="list-table">
+  <table class="table table-hover table-bordered">
     <tr>
-      <th>id</th>
-      <th>Winner</th>
-      <th>Winner Score</th>
-      <th>Loser</th>
-      <th>Loser Score</th>
-      <th>Date</th>
+      <th class="table-top-row">id</th>
+      <th class="table-top-row">Winner</th>
+      <th class="table-top-row">Winner Score</th>
+      <th class="table-top-row">Loser</th>
+      <th class="table-top-row">Loser Score</th>
+      <th class="table-top-row">Date</th>
     </tr>
 
     <!-- fil: is this the best way to do this? I think a join table would be better here -->
