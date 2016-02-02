@@ -68,6 +68,8 @@ body {
 
 .main-header {
   background-color: $secondary-background;
+  border-bottom: 3px dashed black;
+  border-top: 3px dashed black;
 
   * {
     font-size: 20px;
