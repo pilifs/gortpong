@@ -126,14 +126,20 @@ a.dark {
   }
 }
 
-.btn-primary {
-  background-color: #1d1267;
-  border-color: #110a3c;
-}
+.cta-main {
+  background-color: #fcff67;
+  padding: 10px 7px;
+  border: 1px solid black;
+  border-radius: 8px;
 
-.btn-primary:hover {
-  background-color: #150d4a;
-  border-color: #0d082d;
+  &:hover {
+    background-color: #fdff8c;
+  }
+
+  &:active {
+    background-color: #dcde7a;
+  }
+
 }
 
 .center {
