@@ -22,7 +22,7 @@ class GamesController < ApplicationController
         render :new
       end
     else
-      flash.now[:notice] = "Invalid input."
+      flash.now[:notice] = "Invalid submit key. If you do not know the submit key please speak to the admins."
       render :new
     end
   end

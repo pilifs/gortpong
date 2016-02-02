@@ -1,5 +1,16 @@
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
+<% if @game.errors.any? || flash[:notice] %>
+  <div class="alert alert-danger" role="alert">
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% else %>
+      <h6>Please correct the following <%= pluralize(@game.errors.count, 'error') %> and try submitting again:</h6>
+    <% end %>
+    <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
 <h1 class="main-title">Submit Game Result</h1>

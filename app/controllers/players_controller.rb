@@ -16,16 +16,16 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(player_params)
 
+    if @player.user.authenticate(player_params[:password])
       if @player.save
-        if @player.user.authenticate(player_params[:password])
-          redirect_to players_path
-        else
-          flash.now[:notice] = "Invalid input."
-          render :new
-        end
+        redirect_to players_path
       else
-          render :new
+       render :new
       end
+    else
+      flash.now[:notice] = "Invalid submit key. If you do not know the submit key please speak to the admins."
+      render :new
+    end
   end
 
   # if @game.user.authenticate(game_params[:password])

@@ -1,5 +1,10 @@
-<% if @player.errors.any? %>
+<% if @player.errors.any? || flash[:notice] %>
 <div class="alert alert-danger" role="alert">
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% else %>
+    <h6>Please correct the following <%= pluralize(@player.errors.count, 'error') %> and try submitting again:</h6>
+  <% end %>
   <ul>
     <% @player.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>

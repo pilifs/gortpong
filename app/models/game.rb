@@ -11,6 +11,10 @@ class Game < ActiveRecord::Base
   # before_validation :slack_to_id
   after_create :update_players
 
+  validates :winner_score, :loser_score, :winner_slack, :loser_slack, presence: true
+  validates :winner_score, numericality: { greater_than_or_equal_to: 21 }
+  validates :winner_score, numericality: { greater_than: :loser_score }
+
   def set_defaults
     # Sets a user ID for "submitter" key
     self.user_id ||= 1
