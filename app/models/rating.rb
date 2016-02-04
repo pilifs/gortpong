@@ -33,6 +33,7 @@ class Rating < ActiveRecord::Base
 
   # TODO: DRY refactor... badly. This will be fixed soon. Just wanted to get it working for at a glance stats asap.
   def calculate_avg_opp_rating_win(winning_player, loser_rating)
+    #Calculate average opponent rating for wins
     if winning_player.rating.avg_opp_rating_win == nil
       winning_player.rating.avg_opp_rating_win = loser_rating
       winning_player.rating.save
@@ -43,9 +44,23 @@ class Rating < ActiveRecord::Base
       winning_player.rating.avg_opp_rating_win = total / (games_played + 1)
       winning_player.rating.save
     end
+
+    #Calculate average opponent rating (overall)
+    if winning_player.rating.avg_opp_rating == nil
+      winning_player.rating.avg_opp_rating = loser_rating
+      winning_player.rating.save
+    else
+      current_average = winning_player.rating.avg_opp_rating
+      games_played = winning_player.games_played - 1
+      total = current_average * games_played + loser_rating
+      winning_player.rating.avg_opp_rating = total / (games_played + 1)
+      winning_player.rating.save
+    end
+
   end
 
   def calculate_avg_opp_rating_loss(losing_player, winner_rating)
+    #Calculate average opponent rating for losses
     if losing_player.rating.avg_opp_rating_loss == nil
       losing_player.rating.avg_opp_rating_loss = winner_rating
       losing_player.rating.save
@@ -56,6 +71,19 @@ class Rating < ActiveRecord::Base
       losing_player.rating.avg_opp_rating_loss = total / (games_played + 1)
       losing_player.rating.save
     end
+
+    #Calculate average opponent rating (overall)
+    if losing_player.rating.avg_opp_rating == nil
+      losing_player.rating.avg_opp_rating = winner_rating
+      losing_player.rating.save
+    else
+      current_average = losing_player.rating.avg_opp_rating
+      games_played = losing_player.games_played - 1
+      total = current_average * games_played + winner_rating
+      losing_player.rating.avg_opp_rating = total / (games_played + 1)
+      losing_player.rating.save
+    end
+
   end
 
 end

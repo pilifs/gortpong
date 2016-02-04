@@ -60,5 +60,4 @@ class Player < ActiveRecord::Base
     (total_points.to_f / total_games.to_f).round(2)
   end
 
-
 end

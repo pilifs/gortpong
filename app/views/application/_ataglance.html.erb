@@ -40,7 +40,14 @@
   <div class="statbox-wrapper hidden-xs col-sm-4 col-md-3 col-lg-2 ">
     <h6>TOUGHEST OPPONENTS</h6>
     <div>
-
+      <table class="table table-hover table-bordered">
+        <% @ag_toughest_opponents.each do |player| %>
+          <tr>
+            <td><%= link_to player.display_name, player %></td>
+            <td><%= "#{player.rating.avg_opp_rating}" %></td>
+          </tr>
+        <% end %>
+      </table>
     </div>
   </div>
 
