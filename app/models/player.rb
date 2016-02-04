@@ -1,6 +1,6 @@
 class Player < ActiveRecord::Base
 
-  # This is for the key to be submitted with game form
+  # This is for the key to be submitted with player create form
   attr_accessor :password
 
   belongs_to :user
@@ -44,10 +44,6 @@ class Player < ActiveRecord::Base
 
     winner.save
     loser.save
-  end
-
-  def avg_score
-
   end
 
 end

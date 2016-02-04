@@ -24,44 +24,14 @@ class Rating < ActiveRecord::Base
     winner.rating.save
     loser.rating.save
 
-    # Store the new rating if that is the winner's highest ever
+    # Store the new rating if that is the winner's highest ever. This should probably be a seperate method.
     if winner.rating.highest_ever < winner.rating.rating
       winner.rating.highest_ever = winner.rating.rating
       winner.rating.save
     end
-
-    # TODO: WHY DOESN'T THIS WORK?? ?? Does not let me pass in "winner" when resetting data but works if I call it from this method in console
-    # The highest_ever_rating method is below
-    # if highest_ever_rating(winner)
-    #   winner.rating.highest_ever = winner.rating
-    #   winner.rating.save
-    # end
   end
 
   # TODO: DRY refactor... badly. This will be fixed soon. Just wanted to get it working for at a glance stats asap.
-  # def calculate_avg_opp_rating(winner, loser)
-  #   if winner.rating.avg_opp_rating == nil
-  #     winner.rating.avg_opp_rating = loser.rating.rating
-  #     winner.rating.save
-  #   else
-  #     current_average = winner.rating.avg_opp_rating
-  #     games_played = winner.games_played -1
-  #     total = current_average * games_played + loser_rating
-  #     winner.rating.avg_opp_rating = total / (games_played + 1)
-  #     winner.rating.save
-  #   end
-  #   if loser.rating.avg_opp_rating == nil
-  #     loser.rating.avg_opp_rating = winner.rating.rating
-  #     loser.rating.save
-  #   else
-  #     current_average = loser.rating.avg_opp_rating
-  #     games_played = loser.games_played -1
-  #     total = current_average * games_played + loser_rating
-  #     loser.rating.avg_opp_rating = total / (games_played + 1)
-  #     loser.rating.save
-  #   end
-  # end
-
   def calculate_avg_opp_rating_win(winning_player, loser_rating)
     if winning_player.rating.avg_opp_rating_win == nil
       winning_player.rating.avg_opp_rating_win = loser_rating
@@ -87,14 +57,5 @@ class Rating < ActiveRecord::Base
       losing_player.rating.save
     end
   end
-
-  # def highest_ever_rating(winner)
-  #   byebug
-  #   if winner.rating.rating > winner.rating.highest_ever
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
 
 end
