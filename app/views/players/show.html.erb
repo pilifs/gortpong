@@ -2,27 +2,35 @@
   <h1><%= @player.display_name %> </h1>
 
   <h2>Stats</h2>
-  <ul>
-    <li>Rating: <%= @player.rating.rating %></li>
-    <li>Games Played: <%= @player.games_played %></li>
-    <li>Wins: <%= @player.wins %></li>
-    <li>Losses <%= @player.losses %></li>
-    <li>Plus/Minus: <%= @player.plus_minus %> </li>
-    <li>Highest Ever Rating <%= @player.rating.highest_ever %></li>
-    <!-- This logic should probably maybe go somewhere else -->
-    <% if @player.rating.avg_opp_rating_win != nil %>
-      <li>Avg opp rating in wins <%= @player.rating.avg_opp_rating_win %></li>
-    <% end %>
-    <% if @player.rating.avg_opp_rating_loss != nil %>
-      <li>Avg opp rating in losses <%= @player.rating.avg_opp_rating_loss %></li>
-    <% end %>
-  </ul>
+
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Rating:</strong> <%= @player.rating.rating %></li>
+      <li class="list-group-item"><strong>Games Played:</strong> <%= @player.games_played %></li>
+      <li class="list-group-item"><strong>Wins:</strong> <%= @player.wins %></li>
+      <li class="list-group-item"><strong>Losses:</strong> <%= @player.losses %></li>
+    </ul>
+
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Plus/Minus:</strong> <%= @player.plus_minus %> </li>
+      <li class="list-group-item"><strong>Highest Ever Rating:</strong> <%= @player.rating.highest_ever %></li>
+      <!-- This logic should probably maybe go somewhere else -->
+      <% if @player.rating.avg_opp_rating_win != nil %>
+        <li class="list-group-item"><strong>Avg opp rating in wins:</strong> <%= @player.rating.avg_opp_rating_win %></li>
+      <% end %>
+      <% if @player.rating.avg_opp_rating_loss != nil %>
+        <li class="list-group-item"><strong>Avg opp rating in losses:</strong> <%= @player.rating.avg_opp_rating_loss %></li>
+      <% end %>
+    </ul>
+  </div>
+
+
 
   <h2>Games</h2>
 
   <table class="table table-hover table-bordered">
     <tr>
-      <th class="table-top-row">id</th>
+      <!-- <th class="table-top-row">id</th> -->
       <th class="table-top-row">Winner</th>
       <th class="table-top-row">Winner Score</th>
       <th class="table-top-row">Loser</th>
@@ -33,7 +41,7 @@
     <!-- fil: is this the best way to do this? I think a join table would be better here -->
     <% (@player.games_won + @player.games_lost).sort.reverse.each do |game| %>
       <tr>
-        <td><%= game.id %></td>
+        <!-- <td><%= game.id %></td> -->
         <td><%= game.winner.display_name %></td>
         <td><%= game.winner_score %></td>
         <td><%= game.loser.display_name %></td>
