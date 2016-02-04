@@ -3,6 +3,7 @@
 <head>
   <title>Gortpong</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -13,18 +14,18 @@
     <div class="container">
       <header>
         <div class="logo pull-left">
-          <%= link_to image_tag("http://www.fillmurray.com/70/70", class: 'img-logo'), root_path %>
-          <%= link_to 'GortPong', root_path %>
+          <%= link_to image_tag("https://pbs.twimg.com/profile_images/3243860552/68de01181388ae9ec69a64248a676a64_400x400.png", class: 'img-logo'), root_path %>
+          <%= link_to 'GORTPONG', root_path, class: "logo-text" %>
         </div>
 
         <nav class="pull-right main-nav">
           <ul>
-            <li><%= link_to 'Add Game', new_game_path, class: 'cta-main' %></li>
-            <li><%= link_to 'Join Ladder', new_player_path, class: 'cta-main' %></li>
             <li><%= link_to 'Rankings', root_path %></li>
             <li><%= link_to 'Game Log', games_path %></li>
             <li><%= link_to 'Rules', rules_path %></li>
             <li><%= link_to 'About', about_path %></li>
+            <li><%= link_to 'Add Game', new_game_path, class: 'cta-main' %></li>
+            <li><%= link_to 'Join Ladder', new_player_path, class: 'cta-main' %></li>
           </ul>
         </nav>
 

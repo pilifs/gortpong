@@ -19,16 +19,19 @@
 @import "bootstrap";
 @import "ataglance";
 
-$primary-background: #7c7d7c;
-$secondary-background: #701515;
+$primary-background: #d1deeb;
+$secondary-background: #fff;
 $primary-font-color: #000000;
-$link-font-color: #801515;
-$cta-color: #fcff67;
+$link-font-color: #777;
+$cta-color: #fff;
 
-
+* {
+  border-radius: 0;
+}
 
 body {
   background: $primary-background;
+  font-family: 'Open Sans', sans-serif;
 }
 
 html,
@@ -37,11 +40,7 @@ body {
   /* The html and body elements cannot have any padding or margin. */
 }
 
-.main-section {
-  padding: 15px;
-  background: white;
-  border: 1px solid #ddd;
-}
+
 
 /* Wrapper for page content to push down footer */
 #wrap {
@@ -68,19 +67,17 @@ body {
 
 .main-header {
   background-color: $secondary-background;
-  border-bottom: 3px dashed black;
-  border-top: 3px dashed black;
+  border-bottom: 2px solid black;
+  border-top: none;
 
   * {
-    font-size: 20px;
-    font-weight: bold;
     color: $primary-font-color;
   }
 
 }
 
 header {
-  height: 90px;
+  height: 80px;
   padding-top: 10px;
 }
 
@@ -103,8 +100,8 @@ header {
 
 .logo {
   img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -127,6 +124,13 @@ a {
 
 }
 
+.logo-text {
+    font-weight: 600;
+    font-size: 20px;
+
+
+}
+
 a.dark {
   color: #FFFFFF;
 
@@ -139,7 +143,6 @@ a.dark {
   background-color: $cta-color;
   padding: 10px 7px;
   border: 1px solid black;
-  border-radius: 8px;
 
   &:hover {
     background-color: #fdff8c;
