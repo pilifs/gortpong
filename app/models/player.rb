@@ -46,4 +46,13 @@ class Player < ActiveRecord::Base
     loser.save
   end
 
+  def win_percentage
+    'n/a' if games_won.count == 0 && games_lost.count == 0
+    0 if games_won.count == 0
+    100 if games_lost.count == 0
+
+    ((self.games_won.count.to_f / (self.games_lost.count.to_f + self.games_won.count.to_f)) * 100).round(2)
+  end
+
+
 end

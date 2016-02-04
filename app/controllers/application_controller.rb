@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     @ag_toughest_opponents #
     @ag_winning_streak = Player.all.order(win_streak: :desc).limit(5)
     @ag_avg_points #
-    @ag_win_percent # Games played this week
+    @ag_win_percent = Player.all.sort_by(&:win_percentage).reverse[0..4]
     @ag_weekly_rating_gain = Array.new(2) {|index| index = "coming soon"}
   end
 
