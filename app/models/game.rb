@@ -8,7 +8,6 @@ class Game < ActiveRecord::Base
   belongs_to :loser, :class_name => 'Player', :foreign_key => 'loser_slack', :primary_key => 'slack_handle'
 
   after_initialize :set_defaults
-  # before_validation :slack_to_id
   after_create :update_players
 
   validates :winner_score, :loser_score, :winner_slack, :loser_slack, presence: true
@@ -26,6 +25,5 @@ class Game < ActiveRecord::Base
     Rating.update_ratings(winner, loser)
     Player.update_stats(winner, loser, score_difference)
   end
-
 
 end
