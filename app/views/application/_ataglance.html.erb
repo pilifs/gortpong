@@ -47,7 +47,14 @@
   <div class="statbox-wrapper hidden-xs col-sm-4 col-md-3 col-lg-2 ">
     <h6>AVG POINTS PER GAME</h6>
     <div>
-
+      <table class="table table-hover table-bordered">
+        <% @ag_avg_points.each do |player| %>
+          <tr>
+            <td><%= link_to player.display_name, player %></td>
+            <td><%= "#{player.avg_points}" %></td>
+          </tr>
+        <% end %>
+      </table>
     </div>
   </div>
 
