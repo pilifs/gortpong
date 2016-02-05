@@ -19,19 +19,21 @@
 @import "bootstrap";
 @import "ataglance";
 
-$primary-background: #d1deeb;
+$primary-background: #ebedee;
 $secondary-background: #fff;
 $primary-font-color: #000000;
 $link-font-color: #777;
+$nav-link-color: #000;
 $cta-color: #fff;
 
 * {
-  border-radius: 0;
+  border-radius: 0 !important;
 }
 
 body {
   background: $primary-background;
   font-family: 'Open Sans', sans-serif;
+  color: $primary-font-color;
 }
 
 html,
@@ -57,53 +59,49 @@ body {
 //   height: 30px;
 // }
 
-// h1 {
-//   text-align: center;
-//   .supporting-text {
-//     font-size: 15px;
-//     font-weight: normal;
+.navbar-header { min-height: 80px !important; }
+.navbar { min-height: 80px !important; }
+.navbar-brand { padding-top: 4px} // img positioning
+
+
+#navbar-collapse-1 {
+    padding-top: 10px;
+    ul {
+    padding-top: 5px;
+    display: table-row;
+      li {
+        display: table-cell;
+        float: none;
+        vertical-align: middle;
+        a {
+          color: $nav-link-color;
+        }
+      }
+    }
+}
+
+.emphasize-nav-link {
+
+}
+
+.navbar-default {
+  background-color: #FFFFFF;
+}
+
+// .navbar-nav {
+//   min-height: 80px !important;
+//   li {
+//     min-height: 80px !important;
+//     padding-top: 0px !important;
+//     padding-bottom: 0px !important;
+//     a {
+//       line-height: 80px;
+//     }
 //   }
 // }
 
-.main-header {
-  background-color: $secondary-background;
-  border-bottom: 2px solid black;
-  border-top: none;
-  margin-bottom: 3px;
-
-  * {
-    color: $primary-font-color;
-  }
-
-}
-
-header {
-  height: 80px;
-  padding-top: 10px;
-}
-
-.main-nav {
-
-  ul {
-    list-style-type: none;
-
-    li {
-      float: left;
-      padding-left: 30px;
-      padding-top: 20px;
-
-      a:hover {
-        color: $cta-color;
-      }
-    }
-  }
-}
-
-.logo {
-  img {
-    width: 60px;
-    height: 60px;
-  }
+.img-logo {
+// 72 px width - img needs to be cropped
 }
 
 .table {
@@ -124,7 +122,6 @@ a {
   }
 
 }
-
 .logo-text {
     font-weight: 600;
     font-size: 20px;
@@ -138,23 +135,6 @@ a.dark {
   :hover {
     color: #DDDDDD;
   }
-}
-
-.cta-main {
-  background-color: $cta-color;
-  padding: 10px 7px;
-  border: 1px solid black;
-
-  &:hover {
-    background-color: #fdff8c;
-    color: black !important;
-  }
-
-  &:active {
-    background-color: #dcde7a;
-    color: black !important;
-  }
-
 }
 
 .center {
