@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
 
   def index
-    @players = Player.where("games_played > ?", 3).includes(:rating).order('ratings.rating DESC')
+    @players = Player.where("games_played >= ?", 3).includes(:rating).order('ratings.rating DESC')
     @games = Game.all.order(created_at: :desc).limit(@players.count)
   end
 
