@@ -1,11 +1,13 @@
 <div class="col-lg-12 full-width-content">
   <h1><%= @player.display_name %> </h1>
 
-  <h2 class="text-center">Player Statistics</h2>
+  <br>
+
+  <h3>Player Statistics</h3>
 
   <div class="row">
 
-    <div class="col-xs-6">
+    <div class="col-xs-12 col-sm-6">
       <ul class="list-group">
         <li class="list-group-item"><strong>Rating:</strong> <%= @player.rating.rating %></li>
         <li class="list-group-item"><strong>Games Played:</strong> <%= @player.games_played %></li>
@@ -14,7 +16,7 @@
       </ul>
     </div>
 
-    <div class="col-xs-6">
+    <div class="col-xs-12 col-sm-6">
       <ul class="list-group">
         <li class="list-group-item"><strong>Plus/Minus:</strong> <%= @player.plus_minus %> </li>
         <li class="list-group-item"><strong>Highest Ever Rating:</strong> <%= @player.rating.highest_ever %></li>
@@ -32,7 +34,7 @@
 
 
 
-  <h2>Games</h2>
+  <h3>Games</h3>
 
   <table class="table table-hover table-bordered">
     <tr>
