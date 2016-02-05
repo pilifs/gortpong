@@ -1,4 +1,4 @@
-$(document).ready(function(){
+var attachPopovers = function(){
 
   // Attach popovers to each stat box - the content is stored in divs immediately
   // after the stat box (siblings on same level in DOM).
@@ -14,4 +14,7 @@ $(document).ready(function(){
 
   });
 
-});
+}
+
+$(document).ready(attachPopovers);
+$(document).on('page:load', attachPopovers );
