@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     @ag_winning_streak = Player.all.order(win_streak: :desc).limit(5)
     @ag_avg_points = Player.all.sort_by(&:avg_points).reverse[0..4] #TODO make this a table column instead..
     @ag_win_percent = Player.all.sort_by(&:win_percentage).reverse[0..4] #TODO make this a table column instead..
-    @ag_weekly_rating_gain = Array.new(2) {|index| index = "coming soon"}
+    @ag_highest_ever_rating = Player.includes(:rating).order("ratings.highest_ever DESC").limit(5)
   end
 
 end

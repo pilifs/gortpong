@@ -105,14 +105,21 @@
 
 
   <div class="statbox-wrapper hidden-xs hidden-sm hidden-md col-lg-2 ">
-    <h6>STATS</h6>
+    <h6>HIGHEST EVER RATING</h6>
     <div>
-
+      <table class="table table-hover table-bordered">
+        <% @ag_highest_ever_rating.each do |player| %>
+          <tr>
+            <td><%= link_to player.display_name, player %></td>
+            <td><%= "#{player.rating.highest_ever}" %></td>
+          </tr>
+        <% end %>
+      </table>
     </div>
   </div>
 
   <div class="hidden stat-help">
-    Number of giraffes eaten.
+    Highest rating this player has ever achieved.
   </div>
 
 </div>
