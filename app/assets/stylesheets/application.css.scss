@@ -114,6 +114,20 @@ header {
   background: #f5f5f5;
 }
 
+.home-table-heading {
+    padding: 3px;
+    font-weight: bold;
+    background-color: #ce463a;
+    // background-color: #fb5f51;
+    color: white;
+
+    h4 {
+      margin: 0;
+      font-size: 14px;
+    }
+
+}
+
 a {
   color: $link-font-color;
 
