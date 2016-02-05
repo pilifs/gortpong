@@ -29,28 +29,40 @@
 <body>
 
 <div id="wrap">
-  <div class="main-header">
-    <div class="container">
-      <header>
-        <div class="logo pull-left">
-          <%= link_to image_tag("https://pbs.twimg.com/profile_images/3243860552/68de01181388ae9ec69a64248a676a64_400x400.png", class: 'img-logo'), root_path %>
-          <%= link_to 'GORTPONG', root_path, class: "logo-text" %>
-        </div>
+  <header>
+    <nav class="navbar navbar-default navbar-static-top main-nav">
+      <div class="container">
 
-        <nav class="pull-right main-nav">
-          <ul>
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#">
+              <%= image_tag("gortpong-draft-fil-feb4.jpg", class: 'img-logo') %>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
+          <ul class="nav navbar-nav navbar-right">
             <li><%= link_to 'Rankings', root_path %></li>
             <li><%= link_to 'Game Log', games_path %></li>
             <li><%= link_to 'Rules', rules_path %></li>
             <li><%= link_to 'About', about_path %></li>
-            <li><%= link_to 'Add Game', new_game_path, class: 'cta-main' %></li>
-            <li><%= link_to 'Join Ladder', new_player_path, class: 'cta-main' %></li>
+            <li class="emphasize-nav-link"><span class="navbar-btn"><%= link_to 'Add Game', new_game_path, class: 'btn btn-default' %></span></li>
+            <li class="emphasize-nav-link"><span class="navbar-btn nav-last"><%= link_to 'Join Ladder', new_player_path, class: 'btn btn-default' %></span></li>
           </ul>
-        </nav>
+        </div>
+      </div>
+    </nav>
 
-      </header>
-    </div>
-  </div>
+  </header>
 
   <div class="container">
     <%= render 'ataglance' %>
