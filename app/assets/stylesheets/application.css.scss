@@ -152,14 +152,6 @@ a {
 
 }
 
-a.dark {
-  color: #FFFFFF;
-
-  :hover {
-    color: #DDDDDD;
-  }
-}
-
 .center {
   text-align: center;
 }
@@ -167,4 +159,12 @@ a.dark {
 .body-content {
   background: white;
   padding: 1px 15px 15px 15px;
+}
+
+a.footer-link {
+  color: #fb5f51;
+}
+
+a.footer-link:hover {
+  color: #777;
 }
