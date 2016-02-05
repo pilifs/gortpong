@@ -1,51 +1,58 @@
-<% if @player.errors.any? || flash[:notice] %>
-<div class="alert alert-danger" role="alert">
-  <% if flash[:notice] %>
-    <%= flash[:notice] %>
-  <% else %>
-    <h6>Please correct the following <%= pluralize(@player.errors.count, 'error') %> and try submitting again:</h6>
-  <% end %>
-  <ul>
-    <% @player.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+<div class="col-xs-12">
+  <div class="body-content">
+    <br>
+
+    <% if @player.errors.any? || flash[:notice] %>
+    <div class="alert alert-danger" role="alert">
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% else %>
+        <h6>Please correct the following <%= pluralize(@player.errors.count, 'error') %> and try submitting again:</h6>
+      <% end %>
+      <ul>
+        <% @player.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+
     <% end %>
-  </ul>
+
+    <h1 class="main-title">Join Ladder</h1>
+
+    <p>Note that you must input your Bitmaker slack name correctly. For key please message @filips / @cstaikos on slack.</p>
+
+    <%= form_for @player, :html => {:class => 'form-horizontal'} do |f| %>
+
+      <div class="form-group">
+        <%= f.label :slack_handle, :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.text_field :slack_handle, :class => 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :display_name, :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.text_field :display_name, :class => 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <%= f.label "Join Key", :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.password_field :password, :class => 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class='col-lg-4 col-lg-offset-2'>
+          <%= f.submit :class => 'btn btn-default' %>
+        </div>
+      </div>
+
+
+    <% end %>
+
+  </div>
 </div>
-
-<% end %>
-
-<h1 class="main-title">Join Ladder</h1>
-
-<p>Note that you must input your Bitmaker slack name correctly. For key please message @filips / @cstaikos on slack.</p>
-
-<%= form_for @player, :html => {:class => 'form-horizontal'} do |f| %>
-
-  <div class="form-group">
-    <%= f.label :slack_handle, :class => 'col-sm-2 control-label' %>
-    <div class='col-lg-4 col-sm-6'>
-      <%= f.text_field :slack_handle, :class => 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :display_name, :class => 'col-sm-2 control-label' %>
-    <div class='col-lg-4 col-sm-6'>
-      <%= f.text_field :display_name, :class => 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-      <%= f.label "Join Key", :class => 'col-sm-2 control-label' %>
-    <div class='col-lg-4 col-sm-6'>
-      <%= f.password_field :password, :class => 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class='col-lg-4 col-lg-offset-2'>
-      <%= f.submit :class => 'btn btn-default' %>
-    </div>
-  </div>
-
-
-<% end %>

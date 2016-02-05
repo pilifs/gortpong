@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
     @ag_plus_minus = Player.all.order(plus_minus: :desc).limit(5)
     @ag_toughest_opponents = Player.includes(:rating).order("ratings.avg_opp_rating DESC").limit(5)
     @ag_winning_streak = Player.all.order(win_streak: :desc).limit(5)
-    @ag_avg_points = Player.all.sort_by(&:avg_points).reverse[0..4] #TODO make this a table column instead..
-    @ag_win_percent = Player.all.sort_by(&:win_percentage).reverse[0..4] #TODO make this a table column instead..
+    @ag_avg_points = Player.where('games_played > ?', 3).sort_by(&:avg_points).reverse[0..4] #TODO make this a table column instead..
+    @ag_win_percent = Player.where('games_played > ?', 3).sort_by(&:win_percentage).reverse[0..4] #TODO make this a table column instead..
     @ag_highest_ever_rating = Player.includes(:rating).order("ratings.highest_ever DESC").limit(5)
   end
 
