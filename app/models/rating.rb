@@ -29,6 +29,10 @@ class Rating < ActiveRecord::Base
       winner.rating.highest_ever = winner.rating.rating
       winner.rating.save
     end
+
+    # Return this value so that when a game calls this, it can set the rating_change
+    # attribute at the same time.
+    rating_difference
   end
 
   # TODO: DRY refactor... badly. This will be fixed soon. Just wanted to get it working for at a glance stats asap.
