@@ -63,3 +63,10 @@ span.nav-last {
     padding-right: 15px
   }
 }
+
+@media (max-width: 768px) {
+  span.navbar-btn {
+    padding-left: 15px;
+    padding-bottom: 5px;
+  }
+}
