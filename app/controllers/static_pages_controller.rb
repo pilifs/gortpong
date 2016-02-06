@@ -1,9 +1,4 @@
 class StaticPagesController < ApplicationController
-  def about
-
-  end
-
-  def rules
-
+  def info
   end
 end
