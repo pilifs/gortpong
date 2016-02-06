@@ -48,3 +48,18 @@ span.nav-last {
 
 }
 // END OF MEDIA QUERY FOR ALL NON-PHONE DEVICES
+
+// FIX NAVBAR OVERFLOW FOR SMALLEST SCREEN SIZE
+@media (min-width: 768px) and (max-width: 979px) {
+    .nav {
+      li {
+        a {
+        padding: 10px 5px;
+      }
+    }
+  }
+
+  span.nav-last {
+    padding-right: 15px
+  }
+}
