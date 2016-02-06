@@ -2,7 +2,7 @@
 <div class="col-lg-12 full-width-content">
   <h1 class="main-title">Game Log</h2>
 
-  <p>A log of all of the games in the GortPong DB. Todo: pagination...</p>
+  <p>A log of all of the games in the GortPong DB.</p>
 
   <table class="table table-hover table-bordered">
     <tr>
@@ -19,13 +19,13 @@
         <%= game.id %>
       </td>
       <td>
-        <%= game.winner.display_name %>
+        <span class="rating-change winner"><%= "+#{game.rating_change}" %></span> <%= link_to game.winner.display_name, game.winner %>
       </td>
       <td>
         <%= game.winner_score %>
       </td>
       <td>
-        <%= game.loser.display_name %>
+        <span class="rating-change loser"><%= "-#{game.rating_change}" %></span> <%= link_to game.loser.display_name, game.loser %>
       </td>
       <td>
         <%= game.loser_score %>

@@ -43,7 +43,7 @@
       <th class="table-top-row">Winner Score</th>
       <th class="table-top-row">Loser</th>
       <th class="table-top-row">Loser Score</th>
-      <th class="table-top-row">Date</th>
+      <!-- <th class="table-top-row">Date</th> -->
     </tr>
 
     <!-- fil: is this the best way to do this? I think a join table would be better here -->
@@ -58,7 +58,7 @@
           <span class="rating-change loser"><%= "-#{game.rating_change}" %></span> <%= link_to game.loser.display_name, game.loser %>
         </td>
         <td><%= game.loser_score %></td>
-        <td><%= game.created_at %></td>
+        <!-- <td><%= game.created_at %></td> -->
       </tr>
     <% end %>
 
