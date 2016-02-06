@@ -64,6 +64,7 @@ span.nav-last {
   }
 }
 
+// NOTE: This is a quick fix for nav buttons in hamburger mode. They should not actually be buttons here -- not great UX. We should use a seperate BG colour to make them stand out instead.
 @media (max-width: 768px) {
   span.navbar-btn {
     padding-left: 15px;
