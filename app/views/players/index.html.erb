@@ -65,13 +65,13 @@
         <%= game.id %>
       </th>
       <td>
-        <%= link_to game.winner.display_name, game.winner %>
+        <span class="rating-change winner"><%= "+#{game.rating_change}" %></span> <%= link_to game.winner.display_name, game.winner %>
       </td>
       <td>
         <%= game.winner_score %>
       </td>
       <td>
-        <%= link_to game.loser.display_name, game.loser %>
+        <span class="rating-change loser"><%= "-#{game.rating_change}" %></span> <%= link_to game.loser.display_name, game.loser %>
       </td>
       <td>
         <%= game.loser_score %>
