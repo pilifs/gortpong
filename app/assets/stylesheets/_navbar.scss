@@ -10,6 +10,8 @@ $hover-nav-color: #3d8bf0;
   border-color: #000;
 }
 
+
+
 // START OF MEDIA QUERY FOR ALL NON-PHONE DEVICES
 @media (min-width: 768px) {
 
@@ -48,6 +50,17 @@ span.nav-last {
 
 }
 // END OF MEDIA QUERY FOR ALL NON-PHONE DEVICES
+
+// Highlight the current page
+#navbar-collapse-1 a.current-link {
+  color: #3d8bf0
+}
+
+#navbar-collapse-1 a.current-btn {
+  color: #FFF !important;
+  background-color: #ce463a;
+  border-color: #b01f17;
+}
 
 // FIX NAVBAR OVERFLOW FOR SMALLEST SCREEN SIZE
 @media (min-width: 768px) and (max-width: 979px) {

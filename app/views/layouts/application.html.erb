@@ -51,11 +51,11 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
 
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'Rankings', root_path %></li>
-            <li><%= link_to 'Game Log', games_path %></li>
-            <li><%= link_to 'Info', info_path %></li>
-            <li class="emphasize-nav-link"><span class="navbar-btn"><%= link_to 'Add Game', new_game_path, class: 'btn btn-default' %></span></li>
-            <li class="emphasize-nav-link"><span class="navbar-btn nav-last"><%= link_to 'Join Ladder', new_player_path, class: 'btn btn-default' %></span></li>
+            <li><%= link_to 'Rankings', root_path, class: "#{cp(root_path)}" %></li>
+            <li><%= link_to 'Game Log', games_path, class: "#{cp(games_path)}" %></li>
+            <li><%= link_to 'Info', info_path, class: "#{cp(info_path)}" %></li>
+            <li class="emphasize-nav-link"><span class="navbar-btn"><%= link_to 'Add Game', new_game_path, class: "btn btn-default #{btn_path(new_game_path)}" %></span></li>
+            <li class="emphasize-nav-link"><span class="navbar-btn nav-last"><%= link_to 'Join Ladder', new_player_path, class: "btn btn-default #{btn_path(new_player_path)}" %></span></li>
           </ul>
         </div>
       </div>
