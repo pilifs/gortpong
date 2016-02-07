@@ -13,6 +13,7 @@ class Player < ActiveRecord::Base
   after_initialize :set_defaults
 
   validates :slack_handle, :display_name, presence: true
+  validates :slack_handle, uniqueness: true
   validates :display_name, length: { maximum: 12 }
 
   def set_defaults
