@@ -103,6 +103,7 @@ a {
 .body-content {
   background: white;
   padding: 1px 15px 15px 15px;
+  border: 1px solid #ddd;
 }
 
 a.footer-link {
@@ -119,4 +120,12 @@ a.footer-link:hover {
 
 .gold-rating {
   color: #CC9900;
+}
+
+.statbox-wrapper h6 {
+  margin-top: 5px;
+}
+
+h1.main-title {
+  margin-top: 0px;
 }
