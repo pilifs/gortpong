@@ -3,7 +3,7 @@
   <table class="table table-hover table-bordered">
     <tr>
       <td colspan="6" class="table-top-row home-table-heading">
-        <h4>LADDER RANKINGS <span class="supporting-text">(showing players with 3+ games)</span></h4>
+        <h4>LADDER RANKINGS <span class="supporting-text">(min. 3 games)</span></h4>
       </td>
     </tr>
     <tr>
@@ -33,7 +33,13 @@
         <%= player.games_played %>
       </td>
       <td>
-        <strong><%= player.rating.rating %></strong>
+        <% if index <= 2 then %>
+          <strong><span class='gold-rating'><%= player.rating.rating %></span></strong>
+        <% elsif index >= 3 && index <= 7 %>
+          <strong><%= player.rating.rating %></strong>
+        <% else %>
+          <%= player.rating.rating %>
+        <% end %>
       </td>
     </tr>
 

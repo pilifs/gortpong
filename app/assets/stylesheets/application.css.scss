@@ -24,6 +24,7 @@ $primary-background: #ebedee;
 $secondary-background: #fff;
 $primary-font-color: #222;
 $link-font-color: #0c3683; //0c52cf
+$gold-rating-color: #CC9900;
 
 * {
   border-radius: 0 !important;
@@ -114,4 +115,8 @@ a.footer-link:hover {
 
 .alert {
   margin-top: 10px;
+}
+
+.gold-rating {
+  color: #CC9900;
 }
