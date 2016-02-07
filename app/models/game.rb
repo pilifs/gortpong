@@ -4,6 +4,8 @@ class Game < ActiveRecord::Base
   attr_accessor :password
 
   belongs_to :user
+  # TODO: This needs to be refactored to use ID as keys, not the slack string, for db performance. Next thing we will do.
+  # TODO: Also need to add the keys to database for performance.
   belongs_to :winner, :class_name => 'Player', :foreign_key => 'winner_slack', :primary_key => 'slack_handle'
   belongs_to :loser, :class_name => 'Player', :foreign_key => 'loser_slack', :primary_key => 'slack_handle'
 
