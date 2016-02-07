@@ -8,6 +8,10 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
+  def show
+    @game = Game.find(params[:id])
+  end
+
   def create
     #TODO Ensure winner != loser
     #TODO Ensure winner and loser slack handles both exist
