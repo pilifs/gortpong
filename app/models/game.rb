@@ -3,13 +3,13 @@ class Game < ActiveRecord::Base
   before_save :modify_youtube_link_for_embed
 
     def  modify_youtube_link_for_embed
-      if self.video_link != nil
+      if self.video_link.blank?
+        self.video_link = nil
+      else
         new_vid = self.video_link.strip
         new_vid = new_vid.split("")
         new_vid = new_vid[-11..-1].join("")
         self.video_link = new_vid
-      else
-        self.video_link = nil
       end
     end
 
