@@ -33,7 +33,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:winner_slack, :winner_score, :loser_slack, :loser_score, :password)
+    params.require(:game).permit(:winner_slack, :winner_score, :loser_slack, :loser_score, :password, :video_link)
   end
 
 end

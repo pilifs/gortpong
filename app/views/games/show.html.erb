@@ -3,7 +3,7 @@
 
   <p>Game <%=@game.id %> - <%= @game.winner.display_name %> vs. <%= @game.loser.display_name %> </p>
     <div class="video_wrapper">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/7mtetunpe1M" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%=@game.video_link%>" frameborder="0" allowfullscreen></iframe>
     </div>
   <table class="table table-hover table-bordered">
     <tr>
