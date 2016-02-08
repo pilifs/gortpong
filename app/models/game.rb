@@ -9,7 +9,7 @@ class Game < ActiveRecord::Base
         new_vid = new_vid[-11..-1].join("")
         self.video_link = new_vid
       else
-        self.video_link = "dQw4w9WgXcQ"
+        self.video_link = nil
       end
     end
 

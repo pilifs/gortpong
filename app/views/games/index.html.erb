@@ -16,7 +16,11 @@
 
     <tr>
       <td>
-        <%= link_to game.id, game %>
+        <% if game.video_link != nil %>
+          <%= link_to game.id, game %>
+          <% else %>
+          <%= game.id %>
+          <% end %>
       </td>
       <td>
         <span class="rating-change winner"><%= "+#{game.rating_change}" %></span> <%= link_to game.winner.display_name, game.winner %>
