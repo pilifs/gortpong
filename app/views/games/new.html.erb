@@ -50,6 +50,13 @@
       </div>
 
       <div class="form-group">
+        <%= f.label 'Youtube link', :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.url_field :video_link, :class => 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
         <%= f.label 'Submit key', :class => 'col-sm-2 control-label' %>
         <div class='col-lg-4 col-sm-6'>
           <%= f.password_field :password, :class => 'form-control' %>

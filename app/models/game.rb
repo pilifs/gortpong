@@ -1,5 +1,14 @@
 class Game < ActiveRecord::Base
 
+  before_save :modify_youtube_link_for_embed
+
+    def  modify_youtube_link_for_embed
+      new_vid = self.video_link.strip
+      new_vid = new_vid.split("")
+      new_vid = new_vid[-11..-1].join("")
+      self.video_link = new_vid
+    end
+
   # This is for the key to be submitted with game form
   attr_accessor :password
 
