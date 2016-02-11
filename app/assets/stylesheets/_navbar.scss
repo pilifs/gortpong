@@ -63,7 +63,7 @@ span.nav-last {
 }
 
 // FIX NAVBAR OVERFLOW FOR SMALLEST SCREEN SIZE
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: 768px) and (max-width: 992px) {
     .nav {
       li {
         a {
@@ -82,5 +82,10 @@ span.nav-last {
   span.navbar-btn {
     padding-left: 15px;
     padding-bottom: 5px;
+  }
+
+  .img-logo {
+    width: 225px;
+    margin-top: 10px;
   }
 }

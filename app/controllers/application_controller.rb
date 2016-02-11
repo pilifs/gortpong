@@ -8,12 +8,12 @@ class ApplicationController < ActionController::Base
   # TODO: This should show if there is a tie for 3rd place by putting (ie. Tie: 3 players) instead of showing the player with highest id in tie.
   # TODO: The sort queries should probably be a seperate column for performance reasons?
   def at_a_glance
-    @ag_plus_minus = Player.all.order(plus_minus: :desc).limit(5)
-    @ag_toughest_opponents = Player.includes(:rating).order("ratings.avg_opp_rating DESC").limit(5)
-    @ag_winning_streak = Player.all.order(win_streak: :desc).limit(5)
+    @ag_plus_minus = Player.where('games_played >= ?', 3).order(plus_minus: :desc).limit(5)
+    @ag_toughest_opponents = Player.where('games_played >= ?', 3).includes(:rating).order("ratings.avg_opp_rating DESC").limit(5)
+    @ag_winning_streak = Player.where('games_played >= ?', 3).order(win_streak: :desc).limit(5)
     @ag_avg_points = Player.where('games_played >= ?', 3).sort_by(&:avg_points).reverse[0..4] #TODO make this a table column instead..
     @ag_win_percent = Player.where('games_played >= ?', 3).sort_by(&:win_percentage).reverse[0..4] #TODO make this a table column instead..
-    @ag_highest_ever_rating = Player.includes(:rating).order("ratings.highest_ever DESC").limit(5)
+    @ag_highest_ever_rating = Player.where('games_played >= ?', 3).includes(:rating).order("ratings.highest_ever DESC").limit(5)
   end
 
 end
