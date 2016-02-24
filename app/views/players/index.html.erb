@@ -33,8 +33,12 @@
         <%= player.games_played %>
       </td>
       <td>
-        <% if index <= 2 then %>
+        <% if index == 0 then %>
           <strong><span class='gold-rating'><%= player.rating.rating %></span></strong>
+        <% elsif index == 1 then %>
+          <strong><span class='silver-rating'><%= player.rating.rating %></span></strong>
+        <% elsif index == 2 then %>
+          <strong><span class='bronze-rating'><%= player.rating.rating %></span></strong>
         <% elsif index >= 3 && index <= 7 %>
           <strong><%= player.rating.rating %></strong>
         <% else %>
