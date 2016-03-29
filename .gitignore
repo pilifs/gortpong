@@ -17,3 +17,6 @@
 /tmp
 
 /lib/assets/bk-seed/*
+
+# Apple
+.DS_Store
