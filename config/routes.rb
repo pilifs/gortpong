@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'players#index'
 
   resources :players, only: [:index, :show, :new, :create]
-  resources :games, only: [:index, :new, :create]
+  resources :games, only: [:index, :new, :create, :show]
 
   get '/info' => 'static_pages#info', as: 'info'
 

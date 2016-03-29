@@ -17,40 +17,47 @@
 
     <h1>Submit Game Result</h1>
 
-    <p>By submitting this form, you verify that the game in question actually occurred and both participants agree with the result. <strong>Only one player</strong> should submit a result per game played. For key please message @filips / @cstaikos on slack.</p>
+    <p>By submitting this form, you verify that the game in question actually occurred and both participants agree with the result. <strong>Only one player</strong> should submit a result per game played. For key please message @filips / @cstaikos on slack. <div class= required><em>Required fields marked </em></div> </p>
 
     <%= form_for @game, :html => {:class => 'form-horizontal'} do |f| %>
 
       <div class="form-group">
-        <%= f.label :winner_slack, :class => 'col-sm-2 control-label' %>
+          <%= f.label :winner_slack, :class => 'col-sm-2 control-label required' %>
         <div class='col-lg-4 col-sm-6'>
           <%= f.text_field :winner_slack, :class => 'form-control' %>
         </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :winner_score, :class => 'col-sm-2 control-label' %>
+          <%= f.label :winner_score, :class => 'col-sm-2 control-label required' %>
         <div class='col-lg-4 col-sm-6'>
           <%= f.number_field :winner_score, :class => 'form-control' %>
         </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :loser_slack, :class => 'col-sm-2 control-label' %>
+          <%= f.label :loser_slack, :class => 'col-sm-2 control-label required' %>
         <div class='col-lg-4 col-sm-6'>
           <%= f.text_field :loser_slack, :class => 'form-control' %>
         </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :loser_score, :class => 'col-sm-2 control-label' %>
+          <%= f.label :loser_score, :class => 'col-sm-2 control-label required' %>
         <div class='col-lg-4 col-sm-6'>
           <%= f.number_field :loser_score, :class => 'form-control' %>
         </div>
       </div>
 
       <div class="form-group">
-        <%= f.label 'Submit key', :class => 'col-sm-2 control-label' %>
+          <%= f.label 'Youtube link', :class => 'col-sm-2 control-label' %>
+        <div class='col-lg-4 col-sm-6'>
+          <%= f.url_field :video_link, :class => 'form-control', :placeholder => "e.g. https://www.youtube.com/watch?v=oQR7J-6Oh14" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <%= f.label 'Submit key', :class => 'col-sm-2 control-label required' %>
         <div class='col-lg-4 col-sm-6'>
           <%= f.password_field :password, :class => 'form-control' %>
         </div>

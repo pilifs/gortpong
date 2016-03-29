@@ -8,6 +8,10 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
+  def show
+    @game = Game.find(params[:id])
+  end
+
   def create
     #TODO Ensure winner != loser
     #TODO Ensure winner and loser slack handles both exist
@@ -29,7 +33,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:winner_slack, :winner_score, :loser_slack, :loser_score, :password)
+    params.require(:game).permit(:winner_slack, :winner_score, :loser_slack, :loser_score, :password, :video_link)
   end
 
 end
