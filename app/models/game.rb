@@ -1,18 +1,5 @@
 class Game < ActiveRecord::Base
 
-  before_save :modify_youtube_link_for_embed
-
-    def  modify_youtube_link_for_embed
-      if self.video_link.blank?
-        self.video_link = nil
-      else
-        new_vid = self.video_link.strip
-        new_vid = new_vid.split("")
-        new_vid = new_vid[-11..-1].join("")
-        self.video_link = new_vid
-      end
-    end
-
   # This is for the key to be submitted with game form
   attr_accessor :password
 
@@ -22,6 +9,7 @@ class Game < ActiveRecord::Base
   belongs_to :winner, :class_name => 'Player', :foreign_key => 'winner_slack', :primary_key => 'slack_handle'
   belongs_to :loser, :class_name => 'Player', :foreign_key => 'loser_slack', :primary_key => 'slack_handle'
 
+  before_save :modify_youtube_link_for_embed
   after_initialize :set_defaults
   after_create :update_players
 
@@ -42,6 +30,17 @@ class Game < ActiveRecord::Base
   def set_defaults
     # Sets a user ID for "submitter" key
     self.user_id ||= 1
+  end
+
+  def  modify_youtube_link_for_embed
+    if self.video_link.blank?
+      self.video_link = nil
+    else
+      new_vid = self.video_link.strip
+      new_vid = new_vid.split("")
+      new_vid = new_vid[-11..-1].join("")
+      self.video_link = new_vid
+    end
   end
 
   # NOTE: This should not be called from the callback. We should put it in the controller to happen on request or in another method called by callback for testing purposes, but then how do we test data (ie. our own not submitted)??
