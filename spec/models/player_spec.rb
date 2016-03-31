@@ -1,6 +1,4 @@
 require 'spec_helper'
-require 'factory_girl'
-
 
 describe Player do
   before(:each) do
@@ -17,6 +15,14 @@ describe Player do
   it "is invalid without a slack handle"
   it "must have a unique display name"
   it "must have a unique slack handle"
-  
+
+  describe '#win_percentage' do
+    it "returns n/a with no games played"
+    it "returns 100 with only wins and no losses"
+    it "returns 0 with only losses and no wins"
+    it "rounds to 2 decimal places"
+    it "accurately returns a percentage of wins / total games"
+  end
+
 
 end
