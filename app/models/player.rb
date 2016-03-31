@@ -5,7 +5,7 @@ class Player < ActiveRecord::Base
 
   belongs_to :user
   # TODO: This needs to be refactored to use ID as keys, not the slack string, for db performance. Next thing we will do.
-  # TODO: Also need to add the keys to database for performance.
+  # TODO: Also need to index the database for performance.
   has_many :games_won, :class_name => 'Game', :foreign_key => 'winner_slack', :primary_key => 'slack_handle'
   has_many :games_lost, :class_name => 'Game', :foreign_key => 'loser_slack', :primary_key => 'slack_handle'
 
@@ -49,24 +49,19 @@ class Player < ActiveRecord::Base
   end
 
   def win_percentage
-    'n/a' if games_won.count == 0 && games_lost.count == 0
+    return 'n/a' if games_played == 0
     0 if games_won.count == 0
     100 if games_lost.count == 0
-    #TODO make this prettier
-    ((games_won.count.to_f / total_games) * 100).round(2)
+    ((games_won.count.to_f / games_played) * 100).round(2)
   end
 
-  # These three methods could potentially be private. Will hold off on that, may call them somewhere else
+  # These two methods could potentially be private. Will hold off on that, may call them somewhere else
   def avg_points
-    (total_points.to_f / total_games.to_f).round(2)
+    (total_points.to_f / games_played.to_f).round(2)
   end
 
   def total_points
     games_won.sum(:winner_score) + games_lost.sum(:loser_score)
-  end
-
-  def total_games
-    total_games = games_won.count + games_lost.count
   end
 
 end
