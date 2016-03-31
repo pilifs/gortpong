@@ -53,13 +53,20 @@ class Player < ActiveRecord::Base
     0 if games_won.count == 0
     100 if games_lost.count == 0
     #TODO make this prettier
-    ((self.games_won.count.to_f / (self.games_lost.count.to_f + self.games_won.count.to_f)) * 100).round(2)
+    ((games_won.count.to_f / total_games) * 100).round(2)
   end
 
+  # These three methods could potentially be private. Will hold off on that, may call them somewhere else
   def avg_points
-    total_points = self.games_won.sum(:winner_score) + self.games_lost.sum(:loser_score)
-    total_games = self.games_won.count + self.games_lost.count
     (total_points.to_f / total_games.to_f).round(2)
+  end
+
+  def total_points
+    games_won.sum(:winner_score) + games_lost.sum(:loser_score)
+  end
+
+  def total_games
+    total_games = games_won.count + games_lost.count
   end
 
 end
