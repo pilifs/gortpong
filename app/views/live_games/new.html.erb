@@ -1,5 +1,9 @@
 <h1>Create a new Live Game</h1>
 
+<% if LiveGame.all.count == 1 %>
+  <%= link_to "View Current Live Game", live_game_path(LiveGame.first) %>
+<% end %>
+
 <%= form_for @live_game do |f| %>
   <div class="field">
     <%= f.label :player_one_slack %>
