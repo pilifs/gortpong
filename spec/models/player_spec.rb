@@ -25,7 +25,10 @@ describe Player do
       all_wins = build(:good_player, losses: 0)
       expect(all_wins.win_percentage).to eq(100)
     end
-    it "returns 0 with only losses and no wins"
+    it "returns 0 with only losses and no wins" do
+      no_wins = build(:bad_player, wins: 0)
+      expect(no_wins.win_percentage).to eq(0)
+    end
     it "rounds to 2 decimal places"
     it "accurately returns a percentage of wins / total games"
   end

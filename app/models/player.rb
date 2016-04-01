@@ -50,8 +50,8 @@ class Player < ActiveRecord::Base
 
   def win_percentage
     return 'n/a' if games_played == 0
-    0 if games_won.count == 0
-    return 100 if games_lost.count == 0
+    return 0 if wins == 0
+    return 100 if losses == 0
     ((games_won.count.to_f / games_played) * 100).round(2)
   end
 
