@@ -25,6 +25,27 @@ class LiveGamesController < ApplicationController
     @player_two_score = @live_game.player_two_score
   end
 
+  def update
+    @live_game = LiveGame.find(params[:id])
+
+    if @live_game.update_attributes(live_game_params)
+      redirect_to live_game_path(@live_game)
+    else
+      redirect_to live_game_path(@live_game)
+      flash[:notice] = "Something went wrong. Please try again."
+    end
+  end
+
+  def destroy
+    @live_game = LiveGame.find(params[:id])
+
+    if @live_game.destroy
+      redirect_to root_path
+    else
+      redirect_to live_game_path(@live_game)
+    end
+  end
+
   private
   def live_game_params
     params.require(:live_game).permit(:player_one_slack, :player_two_slack, :player_one_score, :player_two_score)

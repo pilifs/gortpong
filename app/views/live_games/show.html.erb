@@ -3,3 +3,21 @@
 <p><%= @player_one_slack %>: <%= @player_one_score %></p>
 
 <p><%= @player_two_slack %>: <%= @player_two_score %></p>
+
+<div class="update-scores">
+  <%= form_for @live_game, method: :put do |f| %>
+    <%= f.hidden_field :player_one_score, value: (@player_one_score + 1) %>
+    <%= f.submit "#{@player_one_slack} Increment" %>
+  <% end %>
+</div>
+
+<div class="update-scores">
+  <%= form_for @live_game, method: :put do |f| %>
+    <%= f.hidden_field :player_two_score, value: (@player_two_score + 1) %>
+    <%= f.submit "#{@player_two_slack} Increment" %>
+  <% end %>
+</div>
+
+<%# TODO: Submit Game Button %>
+
+<%= link_to "Delete This Game", live_game_path(@live_game), method: :delete, data: {confirm: "Are you sure you want to delete this game?"} %>
