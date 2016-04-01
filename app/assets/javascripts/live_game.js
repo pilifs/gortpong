@@ -6,10 +6,6 @@ $(document).on('ready page:load', function() {
   $(document).on('click', '#submit-live-game-button', function(e) {
     e.preventDefault();
 
-    // $.ajax({
-    //   type: 'post',
-    //   action: '/games',
-    //   data:
-    // })
+    alert("WOOHOO")
   })
 })

@@ -10,7 +10,9 @@
 
 <%# TODO: Submit Game Button %>
 <div class="submit-live-game">
-  <%= button_to "Submit Game Score", id: "submit-live-game-button" %>
+  <%= button_tag "Submit Game Score", id: "submit-live-game-button" %>
 </div>
 
 <%= link_to "Delete This Game", live_game_path(@live_game), method: :delete, data: {confirm: "Are you sure you want to delete this game?"} %>
+
+<%# TODO: Switch to index view %>
