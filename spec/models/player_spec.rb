@@ -17,6 +17,13 @@ describe Player do
   it "must have a unique slack handle"
 
   describe '#win_percentage' do
+    it "multiplies basic win percentage by 100" do
+      wins = 3
+      losses = 3
+      games_played = wins + losses
+      fifty_percent = build(:avg_player, wins: wins, losses: losses, games_played: games_played)
+      expect(fifty_percent.win_percentage).to eq(wins / games_played.to_f * 100)
+    end
     it "returns n/a with no games played" do
       never_played = build(:avg_player, games_played: 0)
       expect(never_played.win_percentage).to eq('n/a')
@@ -33,7 +40,6 @@ describe Player do
       one_of_three = build(:bad_player, games_played: 3, losses: 2)
       expect(one_of_three.win_percentage).to eq(33.33)
     end
-    it "accurately returns a percentage of wins / total games"
   end
 
   describe '#avg_points' do
