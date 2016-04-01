@@ -9,8 +9,8 @@
 </div>
 
 <%# TODO: Submit Game Button %>
-<%= form_for @live_game, controller: "game_controller", action: "create" do |f| %>
-
-<% end %>
+<div class="submit-live-game">
+  <%= render 'submit_game_form' %>
+</div>
 
 <%= link_to "Delete This Game", live_game_path(@live_game), method: :delete, data: {confirm: "Are you sure you want to delete this game?"} %>
