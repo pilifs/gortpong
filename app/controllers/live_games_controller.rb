@@ -19,10 +19,10 @@ class LiveGamesController < ApplicationController
 
   def show
     @live_game = LiveGame.find(params[:id])
-    @player_one_slack = @live_game.player_one_slack
-    @player_two_slack = @live_game.player_two_slack
-    @player_one_score = @live_game.player_one_score
-    @player_two_score = @live_game.player_two_score
+    # @player_one_slack = @live_game.player_one_slack
+    # @player_two_slack = @live_game.player_two_slack
+    # @player_one_score = @live_game.player_one_score
+    # @player_two_score = @live_game.player_two_score
   end
 
   def update
