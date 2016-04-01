@@ -19,6 +19,10 @@ class LiveGamesController < ApplicationController
 
   def show
     @live_game = LiveGame.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def update

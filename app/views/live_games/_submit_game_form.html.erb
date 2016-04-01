@@ -1,7 +1,7 @@
-<%= form_for @live_game, controller: "game_controller", action: "create" do |f| %>
-  <%= f.hidden_field :player_one_score %>
-  <%= f.hidden_field :player_two_score %>
-  <%= f.hidden_field :player_one_slack %>
-  <%= f.hidden_field :player_two_slack %>
+<%= form_for @game, url: { action: "create" } do |f| %>
+  <%= f.hidden_field :winner_score, :player_one_score %>
+  <%= f.hidden_field :loser_score, "#{@live_game.player_two_score}" %>
+  <%= f.hidden_field :winner_slack, "#{@live_game.player_one_slack}" %>
+  <%= f.hidden_field :loser_slack, "#{@live_game.player_two_slack}" %>
   <%= f.submit "Submit Game Score" %>
 <% end %>
