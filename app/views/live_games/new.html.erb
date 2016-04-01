@@ -1,0 +1,17 @@
+<h1>Create a new Live Game</h1>
+
+<%= form_for @live_game do |f| %>
+  <div class="field">
+    <%= f.label :player_one_slack %>
+    <%= f.text_field :player_one_slack %>
+  </div>
+
+  <div class="field">
+    <%= f.label :player_two_slack %>
+    <%= f.text_field :player_two_slack %>
+  </div>
+
+  <div class="action">
+    <%= f.submit "Start a new Live Game" %>
+  </div>
+<% end %>
