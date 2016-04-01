@@ -1,26 +1,26 @@
 <h1><%= @player_one_slack %> vs. <%= @player_two_slack %></h1>
 
-<p><%= @player_one_slack %>: <%= @player_one_score %></p>
+<p><%= @player_one_slack %>: <span id="player-one-score"><%= @player_one_score %></span></p>
 
-<p><%= @player_two_slack %>: <%= @player_two_score %></p>
+<p><%= @player_two_slack %>: <span id="player-two-score"><%= @player_two_score %></span></p>
 
 <div class="update-scores">
-  <%= form_for @live_game, method: :put do |f| %>
+  <%= form_for @live_game, method: :put, remote: true do |f| %>
     <%= f.hidden_field :player_one_score, value: (@player_one_score + 1) %>
     <%= f.submit "#{@player_one_slack} Increment" %>
   <% end %>
 
-  <%= form_for @live_game, method: :put do |f| %>
+  <%= form_for @live_game, method: :put, remote: true do |f| %>
     <%= f.hidden_field :player_one_score, value: (@player_one_score - 1 if @player_one_score > 0) %>
     <%= f.submit "#{@player_one_slack} Decrement" %>
   <% end %>
 
-  <%= form_for @live_game, method: :put do |f| %>
+  <%= form_for @live_game, method: :put, remote: true do |f| %>
     <%= f.hidden_field :player_two_score, value: (@player_two_score + 1) %>
     <%= f.submit "#{@player_two_slack} Increment" %>
   <% end %>
 
-  <%= form_for @live_game, method: :put do |f| %>
+  <%= form_for @live_game, method: :put, remote: true do |f| %>
     <%= f.hidden_field :player_two_score, value: (@player_two_score - 1 if @player_two_score > 0) %>
     <%= f.submit "#{@player_two_slack} Decrement" %>
   <% end %>

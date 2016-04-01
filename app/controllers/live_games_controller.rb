@@ -29,7 +29,10 @@ class LiveGamesController < ApplicationController
     @live_game = LiveGame.find(params[:id])
 
     if @live_game.update_attributes(live_game_params)
-      redirect_to live_game_path(@live_game)
+      respond_to do |format|
+        format.html { redirect_to live_game_path(@live_game) }
+        format.js
+      end
     else
       redirect_to live_game_path(@live_game)
       flash[:notice] = "Something went wrong. Please try again."
