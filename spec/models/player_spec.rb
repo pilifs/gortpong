@@ -29,7 +29,10 @@ describe Player do
       no_wins = build(:bad_player, wins: 0)
       expect(no_wins.win_percentage).to eq(0)
     end
-    it "rounds to 2 decimal places"
+    it "rounds to 2 decimal places" do
+      one_of_three = build(:bad_player, games_played: 3, losses: 2)
+      expect(one_of_three.win_percentage).to eq(33.33)
+    end
     it "accurately returns a percentage of wins / total games"
   end
 

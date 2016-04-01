@@ -52,7 +52,7 @@ class Player < ActiveRecord::Base
     return 'n/a' if games_played == 0
     return 0 if wins == 0
     return 100 if losses == 0
-    ((games_won.count.to_f / games_played) * 100).round(2)
+    ((wins.to_f / games_played) * 100).round(2)
   end
 
   # These two methods could potentially be private. Will hold off on that, may call them somewhere else
