@@ -1,0 +1,19 @@
+<%= form_for @live_game, method: :put, remote: true do |f| %>
+  <%= f.hidden_field :player_one_score, value: (@live_game.player_one_score + 1) %>
+  <%= f.submit "#{@live_game.player_one_slack} Increment" %>
+<% end %>
+
+<%= form_for @live_game, method: :put, remote: true do |f| %>
+  <%= f.hidden_field :player_one_score, value: (@live_game.player_one_score - 1 if @live_game.player_one_score > 0) %>
+  <%= f.submit "#{@live_game.player_one_slack} Decrement" %>
+<% end %>
+
+<%= form_for @live_game, method: :put, remote: true do |f| %>
+  <%= f.hidden_field :player_two_score, value: (@live_game.player_two_score + 1) %>
+  <%= f.submit "#{@live_game.player_two_slack} Increment" %>
+<% end %>
+
+<%= form_for @live_game, method: :put, remote: true do |f| %>
+  <%= f.hidden_field :player_two_score, value: (@live_game.player_two_score - 1 if @live_game.player_two_score > 0) %>
+  <%= f.submit "#{@live_game.player_two_slack} Decrement" %>
+<% end %>
