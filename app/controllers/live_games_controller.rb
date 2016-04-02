@@ -1,4 +1,5 @@
 class LiveGamesController < ApplicationController
+  layout 'live'
 
   def index
     @live_games = LiveGame.all.order(:created_at)
