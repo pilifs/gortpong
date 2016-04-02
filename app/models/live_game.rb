@@ -9,6 +9,7 @@ class LiveGame < ActiveRecord::Base
   def set_defaults
     self.player_one_score ||= 0
     self.player_two_score ||= 0
+    self.in_progress ||= false
   end
 
   def check_only_one_game_exists
