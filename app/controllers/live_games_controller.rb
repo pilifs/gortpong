@@ -1,5 +1,13 @@
 class LiveGamesController < ApplicationController
 
+  def index
+    @live_game = LiveGame.first
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def new
     @live_game = LiveGame.new
   end
@@ -14,14 +22,6 @@ class LiveGamesController < ApplicationController
     else
       flash[:notice] = "Something went wrong. Please try again."
       render :new
-    end
-  end
-
-  def show
-    @live_game = LiveGame.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.json
     end
   end
 
