@@ -56,12 +56,8 @@ class LiveGamesController < ApplicationController
   def destroy
     @live_game = LiveGame.find(params[:id])
     @live_game.reset_game
-
-    if @live_game.destroy
-      redirect_to root_path
-    else
-      redirect_to live_game_path(@live_game)
-    end
+    # NOTE: Add notice and check here
+    redirect_to live_games_path
   end
 
   private
@@ -77,10 +73,5 @@ class LiveGamesController < ApplicationController
     live_game.in_progress = true
   end
 
-  def reset_game
-    live_game.player_one_score = 0
-    live_game.player_two_score = 0
-    live_game.in_progress = false
-  end
 
 end

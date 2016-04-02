@@ -13,6 +13,14 @@ class LiveGame < ActiveRecord::Base
     self.in_progress ||= false
   end
 
+  def reset_game
+    player_one_slack = nil
+    player_two_slack = nil
+    player_one_score = 0
+    player_two_score = 0
+    in_progress = false
+  end
+
   # def check_only_one_game_exists
   #   errors.add(:base, "Only one live game can exist at a time.") if LiveGame.all.count != 0
   # end
