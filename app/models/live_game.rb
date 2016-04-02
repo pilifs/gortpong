@@ -22,6 +22,12 @@ class LiveGame < ActiveRecord::Base
     self.save
   end
 
+  def set_status
+    self.in_progress = true
+    self.player_two_slack ||= "Awaiting Opponent"
+    self.save
+  end
+
   # def check_only_one_game_exists
   #   errors.add(:base, "Only one live game can exist at a time.") if LiveGame.all.count != 0
   # end

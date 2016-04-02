@@ -42,8 +42,7 @@ class LiveGamesController < ApplicationController
     @live_game = LiveGame.find(params[:id])
 
     if @live_game.update_attributes(live_game_params)
-      @live_game.in_progress = true # This is confusing but it's okay for now. Should not need to be set when score updates only when players join
-      @live_game.save
+      @live_game.set_status
       respond_to do |format|
         format.html { redirect_to live_game_path(@live_game) }
         format.js
