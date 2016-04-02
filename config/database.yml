@@ -18,7 +18,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/gortpong_test_db
+  database: <%= ENV['TRAVIS'] ? 'travis_ci_test' : 'db/gortpong_test_db' %>
+  username: <%= ENV['TRAVIS'] ? 'postgresql' : '' %>
 
 production:
   <<: *default
