@@ -1,8 +1,6 @@
-<h1>Create a new Live Game</h1>
+<h1>Add your table to GortPong LIVE</h1>
 
-<% if LiveGame.first.present? %>
-  <%= link_to "View Current Live Game", live_game_path(LiveGame.first) %>
-<% end %>
+<p>This is a placeholder. Each live game will represent one table with a persistent id.</p>
 
 <%= form_for @live_game do |f| %>
   <div class="field">
@@ -15,7 +13,15 @@
     <%= f.text_field :player_two_slack %>
   </div>
 
+  <div class="field">
+    <%= f.label :table_name %>
+    <%= f.text_field :table_name %>
+  </div>
+
+<!-- TODO: We should have an address field in here with geolocation probably. -->
+<!-- TODO: This needs authentication. Can use the same weak submit key auth or just setup admins/real user permissions like we will need to eventually anyway. -->
+
   <div class="action">
-    <%= f.submit "Start a new Live Game" %>
+    <%= f.submit "Add my table" %>
   </div>
 <% end %>
