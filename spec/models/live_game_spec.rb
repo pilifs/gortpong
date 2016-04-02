@@ -11,14 +11,29 @@ RSpec.describe LiveGame, type: :model do
 
   context 'when creating a live game' do
     it 'must have a table_name' do
-      
+      expect(build(:live_game, table_name: nil)).not_to be_valid
     end
   end
 
   describe '#reset_game' do
-    it 'sets score to 0'
-    it 'sets in_progress to false'
-    it 'sets slack handles to nil'
+    before do
+      @live_game.reset_game
+    end
+    it 'sets player one score to 0' do
+      expect(@live_game.player_one_score).to eq(0)
+    end
+    it 'sets player two score to 0' do
+      expect(@live_game.player_two_score).to eq(0)
+    end
+    it 'sets in_progress to false' do
+      expect(@live_game.in_progress).to eq(false)
+    end
+    it 'sets player one slack handle to nil' do
+      expect(@live_game.player_one_slack).to eq(nil)
+    end
+    it 'sets player two slack handle to nil' do
+      expect(@live_game.player_two_slack).to eq(nil)
+    end
   end
 
   describe '#display_name' do
