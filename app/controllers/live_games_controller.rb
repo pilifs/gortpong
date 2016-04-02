@@ -1,7 +1,7 @@
 class LiveGamesController < ApplicationController
 
   def index
-    @live_games = LiveGame.all
+    @live_games = LiveGame.all.order(:created_at)
     respond_to do |format|
       format.html
       format.json
@@ -70,6 +70,7 @@ class LiveGamesController < ApplicationController
   end
 
   def start_game
+    # TODO: Add game start time. Add warmup and true in progress so we know when the game starts and can track game length.
     live_game.in_progress = true
   end
 
