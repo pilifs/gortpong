@@ -8,6 +8,7 @@
 
 require 'csv'
 
+# NOTE: This is insecure and it doesn't matter (submit key is not intended to be a real password for anything or hard to find out)
 User.create(
   {
     :name => 'submitter',
@@ -37,6 +38,14 @@ CSV.foreach('lib/assets/google-docs-games.csv') do |row|
         :loser_score => row[3],
       })
 end
+
+LiveGame.create(
+  table_name: "Bitmaker Labs"
+)
+
+LiveGame.create(
+  table_name: "Mel Lastman Square"
+)
 
 #1
 # Player.create(
