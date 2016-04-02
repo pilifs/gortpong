@@ -36,6 +36,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Puma for app server
 gem 'puma'
 
+# ReactJS
+gem 'react-rails', '~> 1.6.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
