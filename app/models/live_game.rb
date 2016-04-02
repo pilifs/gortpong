@@ -14,11 +14,12 @@ class LiveGame < ActiveRecord::Base
   end
 
   def reset_game
-    player_one_slack = nil
-    player_two_slack = nil
-    player_one_score = 0
-    player_two_score = 0
-    in_progress = false
+    self.player_one_slack = nil
+    self.player_two_slack = nil
+    self.player_one_score = 0
+    self.player_two_score = 0
+    self.in_progress = false
+    self.save
   end
 
   # def check_only_one_game_exists
