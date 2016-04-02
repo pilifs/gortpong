@@ -19,7 +19,7 @@ development:
 test:
   <<: *default
   database: <%= ENV['TRAVIS'] ? 'travis_ci_test' : 'db/gortpong_test_db' %>
-  username: <%= ENV['TRAVIS'] ? 'postgresql' : '' %>
+  username: <%= ENV['TRAVIS'] ? 'postgres' : '' %>
 
 production:
   <<: *default
