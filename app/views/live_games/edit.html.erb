@@ -1,4 +1,4 @@
-<!-- NOTE: This logic should be moved off the view probably. There needs to be a better way to check if someone is at the table. Do we want to always default a lone player to player_one? -->
+<!-- NOTE: This logic should be moved off the view to controller. There needs to be a better way to check if someone is at the table. Do we want to always default a lone player to player_one? -->
 <% if @live_game.player_one_slack == nil && @live_game.player_two_slack == nil %>
 
   <p>There is no one currently playing @ <%= @live_game.table_name %>.</p>
@@ -28,5 +28,20 @@
       <%= f.submit "Join the game!" %>
     </div>
   <% end %>
+
+<% else %>
+
+  <p>There is a game between <%= "#{@live_game.player_one_slack} & #{@live_game.player_two_slack}" %> in progress. Please wait for it to finish. <%= link_to "View Scoreboard", live_game_path(@live_game)%></p>
+
+  <!-- TODO: There needs to be some auth logic for displaying this. Not everyone should be able to mess with the score. -->
+  <div class="update-scores">
+    <%= render 'live_point_form' %>
+  </div>
+
+  <div class="submit-live-game">
+    <%= button_tag "Submit Game Score", id: "submit-live-game-button" %>
+  </div>
+
+  <%= link_to "Reset Game", live_game_path(@live_game), method: :delete, data: {confirm: "Are you sure you want to reset this game? (score will not be submitted)"} %>
 
 <% end %>
