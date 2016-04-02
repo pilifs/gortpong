@@ -1,4 +1,7 @@
-# gortpong
+# GortPong
+
+[![Build Status](https://travis-ci.org/pilifs/gortpong.svg?branch=master)](https://travis-ci.org/pilifs/gortpong)
+
 An attempt to create an elo-based ladder system to settle the question of: "who is the table tennis champion of team Gort?"
 
 See the ladder live @ <http://www.gortpong.com>
