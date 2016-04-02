@@ -1,6 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe LiveGame, type: :model do
+  before(:each) do
+    @live_game = build(:live_game)
+  end
+
+  it "has a valid factory" do
+    expect(@live_game).to be_valid
+  end
+
+  context 'when creating a live game' do
+    it 'must have a table_name' do
+      
+    end
+  end
 
   describe '#reset_game' do
     it 'sets score to 0'

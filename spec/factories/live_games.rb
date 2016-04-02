@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :live_game do
-    player_one_slack filips
-    player_two_slack nil
+    table_name 'Bitmaker Labs'
+    player_one_slack 'filips'
     in_progress true
   end
 end
