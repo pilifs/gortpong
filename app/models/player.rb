@@ -50,13 +50,14 @@ class Player < ActiveRecord::Base
 
   def win_percentage
     return 'n/a' if games_played == 0
-    0 if games_won.count == 0
-    100 if games_lost.count == 0
-    ((games_won.count.to_f / games_played) * 100).round(2)
+    return 0 if wins == 0
+    return 100 if losses == 0
+    ((wins.to_f / games_played) * 100).round(2)
   end
 
   # These two methods could potentially be private. Will hold off on that, may call them somewhere else
   def avg_points
+    return 0 if games_played == 0
     (total_points.to_f / games_played.to_f).round(2)
   end
 
