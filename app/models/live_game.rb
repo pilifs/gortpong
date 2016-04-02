@@ -4,6 +4,13 @@ class LiveGame < ActiveRecord::Base
   validate :check_player_exists
   validate :check_only_one_game_exists, on: [:create]
 
+  after_initialize :set_defaults
+
+  def set_defaults
+    self.player_one_score ||= 0
+    self.player_two_score ||= 0
+  end
+
   def check_only_one_game_exists
     errors.add(:base, "Only one live game can exist at a time.") if LiveGame.all.count != 0
   end
