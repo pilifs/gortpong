@@ -33,18 +33,22 @@ class LiveGamesController < ApplicationController
 
   def edit
     @live_game = LiveGame.find(params[:id])
+    # TODO: Logic needs to move from edit view to here
   end
 
   def update
+    # TODO: More param submission validations. IE: Default to player_one if no one on table, do not allow people to overwrite participants
     @live_game = LiveGame.find(params[:id])
 
     if @live_game.update_attributes(live_game_params)
+      @live_game.in_progress = true # This is confusing but it's okay for now. Should not need to be set when score updates only when players join
+      @live_game.save
       respond_to do |format|
         format.html { redirect_to live_game_path(@live_game) }
         format.js
       end
     else
-      redirect_to live_game_path(@live_game)
+      redirect_to edit_live_game_path(@live_game)
       flash[:notice] = "Something went wrong. Please try again."
     end
   end
