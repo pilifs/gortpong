@@ -37,11 +37,16 @@ RSpec.describe LiveGame, type: :model do
   end
 
   describe '#display_name' do
-    context 'when given a player slack handle' do
-      it 'returns the associated display name'
+    context 'when given a registered player slack handle' do
+      it 'returns the associated display name' do
+        @filip = create(:good_player, slack_handle: 'filips', display_name: 'Fil')
+        expect(@live_game.display_name(@filip.slack_handle)).to eq('Fil')
+      end
     end
     context 'when slack handle is nil' do
-      it 'returns awaiting game text'
+      it 'returns awaiting opponent' do
+        expect(@live_game.display_name(nil)).to eq('Awaiting Opponent')
+      end
     end
   end
 

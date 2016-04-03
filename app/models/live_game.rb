@@ -28,6 +28,11 @@ class LiveGame < ActiveRecord::Base
     self.save
   end
 
+  def display_name(slack_handle)
+    return "Awaiting Opponent" if !slack_handle
+    Player.find_by(slack_handle: slack_handle).display_name
+  end
+
   # def check_only_one_game_exists
   #   errors.add(:base, "Only one live game can exist at a time.") if LiveGame.all.count != 0
   # end
