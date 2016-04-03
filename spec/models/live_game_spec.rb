@@ -17,6 +17,9 @@ RSpec.describe LiveGame, type: :model do
       create(:live_game, table_name: 'Repeat')
       expect(build(:live_game, table_name: 'Repeat')).not_to be_valid
     end
+    it 'table_name must have minimum of 3 characters' do
+      expect(build(:live_game, table_name: 'ab')).not_to be_valid
+    end
   end
 
   describe '#reset_game' do
