@@ -1,8 +1,20 @@
 require 'faker'
 
-# There is probably a better way to do this to avoid repitition and only change the variables I need to. Will look into it later.
 
 FactoryGirl.define do
+
+  factory :player do
+    rating {Rating.create(rating: 1500, highest_ever: 1500)}
+    sequence :slack_handle do |n|
+      "slack#{n}"
+    end
+    sequence :display_name do |n|
+      "player#{n}"
+    end
+    user_id 1
+  end
+
+  # There is a better way to do this to avoid repetition and only change the variables I need to. Will look into it later.
   factory :good_player, class: Player do
     games_played 10
     wins 9
