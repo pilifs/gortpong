@@ -29,6 +29,8 @@
     </div>
   <% end %>
 
+  <%= link_to "Reset Game", live_game_path(@live_game), method: :delete, data: {confirm: "Are you sure you want to reset this game? (score will not be submitted)"} %>
+
 <% else %>
 
   <p>There is a game between <%= "#{@live_game.player_one_slack} & #{@live_game.player_two_slack}" %> in progress. Please wait for it to finish. <%= link_to "View Scoreboard", live_game_path(@live_game)%></p>
