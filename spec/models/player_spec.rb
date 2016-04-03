@@ -12,10 +12,20 @@ describe Player do
   end
 
   context "when creating a new player" do
-    it "is invalid without a display name"
-    it "is invalid without a slack handle"
-    it "must have a unique display name"
-    it "must have a unique slack handle"
+    it "is invalid without a display name" do
+      expect(build(:good_player, display_name: nil)).not_to be_valid
+    end
+    it "is invalid without a slack handle" do
+      expect(build(:good_player, slack_handle: nil)).not_to be_valid
+    end
+    it "must have a unique display name" do
+      create(:good_player, display_name: "repeat")
+      expect(build(:good_player, display_name: "repeat")).not_to be_valid
+    end
+    it "must have a unique slack handle" do
+      create(:good_player, slack_handle: "repeat")
+      expect(build(:good_player, slack_handle: "repeat")).not_to be_valid
+    end
   end
 
   describe '#win_percentage' do
