@@ -22,7 +22,7 @@ class LiveGamesController < ApplicationController
   end
 
   def create
-    @live_game = LiveGame.create(live_game_create_params)
+    @live_game = LiveGame.create(table_create_params)
 
     if @live_game.id
       redirect_to live_games_path
@@ -61,7 +61,7 @@ class LiveGamesController < ApplicationController
   end
 
   private
-  def live_game_create_params
+  def table_create_params
     params.require(:live_game).permit(:table_name)
   end
 
