@@ -13,6 +13,10 @@ RSpec.describe LiveGame, type: :model do
     it 'must have a table_name' do
       expect(build(:live_game, table_name: nil)).not_to be_valid
     end
+    it 'table_name must be unique' do
+      create(:live_game, table_name: 'Repeat')
+      expect(build(:live_game, table_name: 'Repeat')).not_to be_valid
+    end
   end
 
   describe '#reset_game' do
