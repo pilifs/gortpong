@@ -20,3 +20,6 @@
 
 # Apple
 .DS_Store
+
+# Ignore simplecov reports
+coverage
