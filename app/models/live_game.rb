@@ -1,12 +1,13 @@
 class LiveGame < ActiveRecord::Base
   validates_presence_of :table_name
   validates :table_name, uniqueness: true
+  validates :table_name, length: { minimum: 3 }
   # validates_presence_of :player_one_slack, :player_two_slack, :player_one_score, :player_two_score
   # validates :player_one_score, :player_two_score, numericality: true
   # validate :check_player_exists
   # validate :check_only_one_game_exists, on: [:create]
 
-  after_initialize :set_defaults
+  after_save :set_defaults
 
   def set_defaults
     self.player_one_score ||= 0

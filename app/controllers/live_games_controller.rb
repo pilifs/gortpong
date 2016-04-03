@@ -24,10 +24,10 @@ class LiveGamesController < ApplicationController
   def create
     @live_game = LiveGame.create(live_game_create_params)
 
-    if @live_game.save
-      redirect_to live_game_path(@live_game)
+    if @live_game.id
+      redirect_to live_games_path
     else
-      flash[:notice] = "Something went wrong. Please try again."
+      # TODO: Need a flash notice in here
       render :new
     end
   end
