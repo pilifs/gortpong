@@ -1,6 +1,12 @@
 class Rating < ActiveRecord::Base
   belongs_to :player
 
+  @@K_FACTOR = 32
+
+  def self.elo_rating_change(elo_ratings)
+
+  end
+
   def self.update_ratings(winner, loser)
     current_ratings = {winner: winner.rating.rating, loser: loser.rating.rating}
 
@@ -16,7 +22,7 @@ class Rating < ActiveRecord::Base
     expected_winner_score = transformed_winner_rating / (transformed_winner_rating + transformed_loser_rating)
 
     # Positive value based on win probability - winner will go up by this amt and loser will go down by it
-    rating_difference = (32 * (1 - expected_winner_score)).to_i
+    rating_difference = (@@K_FACTOR * (1 - expected_winner_score)).to_i
 
     winner.rating.rating = current_ratings[:winner] + rating_difference
     loser.rating.rating = current_ratings[:loser] - rating_difference
