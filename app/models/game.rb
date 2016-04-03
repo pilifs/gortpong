@@ -43,7 +43,9 @@ class Game < ActiveRecord::Base
     end
   end
 
-  # NOTE: This should not be called from the callback. We should put it in the controller to happen on request or in another method called by callback for testing purposes, but then how do we test data (ie. our own not submitted)??
+  # NOTE: This should not be called from the callback. We should put it in the controller to happen on request or in another method called by callback for testing purposes
+  # Everything starts from here. This method is called from after_create callback
+  # In process of cleaning it up
   def update_players
     score_difference = winner_score - loser_score
     self.rating_change = Rating.update_ratings(winner, loser) # Returns rating change
