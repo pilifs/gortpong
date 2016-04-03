@@ -1,12 +1,14 @@
 class Rating < ActiveRecord::Base
   belongs_to :player
 
+  # NOTE: Should be called rating.elo not rating.rating. Or class should be called Elo for associations?
+
+  # This constant dictates how much the rating can change.
+  # It always multiplies the expected probability by this to determine rating change
+  # IE: 50/50 is + or - 16. The most rating you can gain or lose from one game is 32.
   @@K_FACTOR = 32
 
-  def self.elo_rating_change(elo_ratings)
-
-  end
-
+  # TODO: This method is doing way too much. Will refactor soon with tests
   def self.update_ratings(winner, loser)
     current_ratings = {winner: winner.rating.rating, loser: loser.rating.rating}
 
