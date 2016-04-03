@@ -69,10 +69,4 @@ class LiveGamesController < ApplicationController
     params.require(:live_game).permit(:player_one_slack, :player_two_slack, :player_one_score, :player_two_score)
   end
 
-  def start_game
-    # TODO: Add game start time. Add warmup and true in progress so we know when the game starts and can track game length.
-    live_game.in_progress = true
-  end
-
-
 end
