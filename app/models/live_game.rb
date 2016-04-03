@@ -26,7 +26,7 @@ class LiveGame < ActiveRecord::Base
 
   def set_status
     self.in_progress = true
-    self.player_two_slack ||= "Awaiting Opponent"
+    # self.player_two_slack ||= "Awaiting Opponent"
     self.save
   end
 

@@ -50,6 +50,7 @@ RSpec.describe LiveGame, type: :model do
         expect(@live_game.display_name(@filip.slack_handle)).to eq('Fil')
       end
     end
+    # TODO: This test could be refactored, the awaiting opponent feature was buggy
     context 'when slack handle is nil' do
       it 'returns awaiting opponent' do
         expect(@live_game.display_name(nil)).to eq('Awaiting Opponent')

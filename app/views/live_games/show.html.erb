@@ -1,14 +1,29 @@
-<% if @live_game.in_progress %>
-  <h1><%= @live_game.player_one_slack %> vs. <%= @live_game.player_two_slack %></h1>
+<% if @live_game.player_one_slack.present? && @live_game.player_two_slack.present? %>
+  <% if @live_game.in_progress %>
+    <h1><%= @live_game.player_one_slack %> vs. <%= @live_game.player_two_slack %></h1>
 
-  <p><span id="player-one-slack"><%= @live_game.player_one_slack %></span>: <span id="player-one-score"><%= @live_game.player_one_score %></span></p>
+    <p><span id="player-one-slack"><%= @live_game.player_one_slack %></span>: <span id="player-one-score"><%= @live_game.player_one_score %></span></p>
 
-  <p><span id="player-two-slack"><%= @live_game.player_two_slack %></span>: <span id="player-two-score"><%= @live_game.player_two_score %></span></p>
+    <p><span id="player-two-slack"><%= @live_game.player_two_slack %></span>: <span id="player-two-score"><%= @live_game.player_two_score %></span></p>
 
+  <% else %>
+    <div class='col-lg-12 text-center'>
+      <h1><%= @live_game.table_name %></h3>
+      <p>There is no game currently active.</p>
+      <%= link_to "Start a New Game", edit_live_game_path(@live_game) %>
+    </div>
+  <% end %>
 <% else %>
-  <div class='col-lg-12 text-center'>
-    <h1><%= @live_game.table_name %></h3>
-    <p>There is no game currently active.</p>
-    <%= link_to "Start a New Game", edit_live_game_path(@live_game) %>
-  </div>
+  <h1><%= @live_game.player_one_slack %> is waiting for a second player.</h1>
+  <p>Join the game!</p>
+  <%= form_for @live_game do |f| %>
+    <div class="field">
+      <%= f.label :player_two_slack %>
+      <%= f.text_field :player_two_slack %>
+    </div>
+
+    <div class="action">
+      <%= f.submit "Join the game!" %>
+    </div>
+  <% end %>
 <% end %>
