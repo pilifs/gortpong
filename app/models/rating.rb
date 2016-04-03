@@ -24,7 +24,7 @@ class Rating < ActiveRecord::Base
     expected_winner_score = transformed_winner_rating / (transformed_winner_rating + transformed_loser_rating)
 
     # Positive value based on win probability - winner will go up by this amt and loser will go down by it
-    rating_difference = (@@K_FACTOR * (1 - expected_winner_score)).to_i
+    rating_difference = (@@K_FACTOR * (1 - expected_winner_score)).round
 
     winner.rating.rating = current_ratings[:winner] + rating_difference
     loser.rating.rating = current_ratings[:loser] - rating_difference

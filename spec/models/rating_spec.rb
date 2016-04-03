@@ -37,8 +37,15 @@ RSpec.describe LiveGame, type: :model do
       end
     end
     context 'with 200 rating difference' do
-      it 'should return 8 if favorite wins'
-      it 'should return 24 if underdog wins'
+      before do
+        @player1.rating.rating += 200
+      end
+      it 'should return 8 if favorite wins' do
+        expect(Rating.update_ratings(@player1, @player2)).to eq(8)
+      end
+      it 'should return 24 if underdog wins' do
+        expect(Rating.update_ratings(@player2, @player1)).to eq(24)
+      end
     end
   end
 end
