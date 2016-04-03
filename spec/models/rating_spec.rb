@@ -48,4 +48,18 @@ RSpec.describe LiveGame, type: :model do
       end
     end
   end
+
+  describe '#calculate_avg_opp_rating_win' do
+    context 'first game ever played' do
+      it 'should return the opponent\'s rating'
+    end
+    it 'should return an average of all opponents\' rating in wins'
+  end
+
+  describe '#calculate_avg_opp_rating_loss' do
+    context 'first game ever played' do
+      it 'should return the opponent\'s rating'
+    end
+    it 'should return an average of all opponents\' rating in losses'
+  end
 end

@@ -5,7 +5,7 @@ class Rating < ActiveRecord::Base
 
   # This constant dictates how much the rating can change.
   # It always multiplies the expected probability by this to determine rating change
-  # IE: 50/50 is + or - 16. The most rating you can gain or lose from one game is 32.
+  # IE: A 50/50 game is +/- 16. The most rating you can gain or lose from one game is 32.
   @@K_FACTOR = 32
 
   # TODO: This method is doing way too much. Will refactor soon with tests
