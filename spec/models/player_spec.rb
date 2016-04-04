@@ -67,6 +67,18 @@ describe Player do
         expect(no_games.avg_points).to eq(0)
       end
     end
+    context "with 0 points and X games played" do
+      it "should return 0"
+    end
+    context "with 50 points and 10 games played" do
+      it "should return 10"
+    end
+    context "with 43 points and 3 games played" do
+      it "should return 14.33 (round 14.333 down to 2 decimals)"
+    end
+    context "with 55 points and 6 games played" do
+      it "should return 9.17 (round 9.166 up to 2 decimals)"
+    end
   end
 
 end
