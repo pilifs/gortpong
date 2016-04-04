@@ -47,6 +47,10 @@ LiveGame.create(
   table_name: "Mel Lastman Square"
 )
 
+LiveGame.all.each do |game|
+  queue = PlayerQueue.create(live_game_id: game.id)
+end
+
 #1
 # Player.create(
 #   display_name: "Fil",
