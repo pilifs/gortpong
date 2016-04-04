@@ -1,1 +1,3 @@
-<li class="player-in-queue"><%= Player.find(player).slack_handle %></li>
+<% @queue.player_id.each do |player| %>
+  <li class="player-in-queue"><%= Player.find(player).slack_handle %></li>
+<% end %>

@@ -6,15 +6,14 @@
 
     <p><span id="player-two-slack"><%= @live_game.player_two_slack %></span>: <span id="player-two-score"><%= @live_game.player_two_score || 0 %></span></p>
 
+  <% if @queue.player_id.length != 0 %>
+    <p>Players Currently Waiting:</p>
+  <% else %>
+    <p>No Players Currently Waiting.</p>
+  <% end %>
+
   <ul class="player-queue">
-    <% if @queue.player_id.length != 0 %>
-      <p>Players Currently Waiting:</p>
-      <% @queue.player_id.each do |player| %>
-        <li class="player-in-queue"><%= Player.find(player).slack_handle %></li>
-      <% end %>
-    <% else %>
-      <p>No Players Currently Waiting.</p>
-    <% end %>
+    <%= render 'player_queues/player_queue', locals: { queue: @queue } %>
   </ul>
 
   <%= form_for [@live_game, @queue], remote: true do |f| %>
