@@ -1,7 +1,7 @@
 <% @live_games.each_with_index do |live_game, index| %>
   <h3>Table <%= index + 1 %>: <%= live_game.table_name %></h1>
   <% if live_game.in_progress %>
-    <p><%= link_to "#{live_game.player_one_slack} & #{live_game.player_two_slack} are playing", live_game_path(live_game) %> (this is a placeholder for in-progress game)</p>
+    <p><%= link_to "#{live_game.player_one_slack} & #{live_game.player_two_slack} are playing", live_game_path(live_game) %></p>
   <% else %>
     <p>No game in progress. <%= link_to "Start a game!", edit_live_game_path(live_game) %></p>
   <% end %>
