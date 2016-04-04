@@ -10,7 +10,7 @@ class LiveGame < ActiveRecord::Base
   # validate :check_player_exists
   # validate :check_only_one_game_exists, on: [:create]
 
-  after_save :set_defaults
+  after_initialize :set_defaults
 
   def set_defaults
     self.player_one_score ||= 0
