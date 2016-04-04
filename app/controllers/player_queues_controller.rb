@@ -13,6 +13,12 @@ class PlayerQueuesController < ApplicationController
     end
   end
 
+  def remove_from_queue
+    @queue = PlayerQueue.find(params[:id])
+    @player = Player.find_by(slack_handle: params[:player_queue][:player_id])
+
+  end
+
   private
   def player_queue_params
     params.require(:player_queue).permit(:player_id)
