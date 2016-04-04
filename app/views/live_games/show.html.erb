@@ -17,6 +17,17 @@
     <p>No Players Currently Waiting.</p>
   <% end %>
 
+  <%= form_for [@live_game, @queue] do |f| %>
+    <div class="field">
+      <%= f.label :player_id, "Join the Queue" %>
+      <%= f.text_field :player_id, value: "" %>
+    </div>
+
+    <div class="action">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
   <% else %>
     <div class='col-lg-12 text-center'>
       <h1><%= @live_game.table_name %></h3>

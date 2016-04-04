@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :players, only: [:index, :show, :new, :create]
   resources :games, only: [:index, :new, :create, :show]
-  resources :live_games, path: '/live'
+  resources :live_games, path: '/live' do
+    resources :player_queue, only: [:update]
+  end
 
   get '/info' => 'static_pages#info', as: 'info'
 
