@@ -13,10 +13,11 @@ class PlayerQueuesController < ApplicationController
     end
   end
 
-  def remove_from_queue
+  def destroy
     @queue = PlayerQueue.find(params[:id])
-    @player = Player.find_by(slack_handle: params[:player_queue][:player_id])
 
+    @queue.player_id.delete(params[:player_id].to_i)
+    @queue.save
   end
 
   private
