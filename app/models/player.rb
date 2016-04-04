@@ -58,7 +58,7 @@ class Player < ActiveRecord::Base
   # These two methods could potentially be private. Will hold off on that, may call them somewhere else
   def avg_points
     return 0 if games_played == 0
-    (total_points.to_f / games_played.to_f).round(2)
+    (total_points.to_f / games_played).round(2)
   end
 
   def total_points
