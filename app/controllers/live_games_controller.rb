@@ -11,6 +11,7 @@ class LiveGamesController < ApplicationController
 
   def show
     @live_game = LiveGame.find(params[:id])
+    @queue = @live_game.player_queue
     respond_to do |format|
       format.html
       format.json

@@ -2,9 +2,20 @@
   <% if @live_game.in_progress %>
     <h1><%= @live_game.player_one_slack %> vs. <%= @live_game.player_two_slack %></h1>
 
-    <p><span id="player-one-slack"><%= @live_game.player_one_slack %></span>: <span id="player-one-score"><%= @live_game.player_one_score %></span></p>
+    <p><span id="player-one-slack"><%= @live_game.player_one_slack %></span>: <span id="player-one-score"><%= @live_game.player_one_score || 0 %></span></p>
 
-    <p><span id="player-two-slack"><%= @live_game.player_two_slack %></span>: <span id="player-two-score"><%= @live_game.player_two_score %></span></p>
+    <p><span id="player-two-slack"><%= @live_game.player_two_slack %></span>: <span id="player-two-score"><%= @live_game.player_two_score || 0 %></span></p>
+
+  <% if @queue.player_id.length != 0 %>
+    <p>Players Currently Waiting:</p>
+    <ul class="player-queue">
+      <% @queue.player_id.each do |player| %>
+      <li class="player-in-queue"><%= Player.find(player).slack_handle %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No Players Currently Waiting.</p>
+  <% end %>
 
   <% else %>
     <div class='col-lg-12 text-center'>
