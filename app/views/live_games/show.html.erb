@@ -10,14 +10,14 @@
     <p>Players Currently Waiting:</p>
     <ul class="player-queue">
       <% @queue.player_id.each do |player| %>
-      <li class="player-in-queue"><%= Player.find(player).slack_handle %></li>
+        <li class="player-in-queue"><%= Player.find(player).slack_handle %></li>
       <% end %>
     </ul>
   <% else %>
     <p>No Players Currently Waiting.</p>
   <% end %>
 
-  <%= form_for [@live_game, @queue] do |f| %>
+  <%= form_for [@live_game, @queue], remote: true do |f| %>
     <div class="field">
       <%= f.label :player_id, "Join the Queue" %>
       <%= f.text_field :player_id, value: "" %>
