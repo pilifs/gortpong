@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :players, only: [:index, :show, :new, :create]
   resources :games, only: [:index, :new, :create, :show]
   resources :live_games, path: '/live' do
+    get '/1080p' => 'scoreboard#1080p', as: 'hd'
     resources :player_queues, only: [:update, :destroy]
   end
 
