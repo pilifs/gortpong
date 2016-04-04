@@ -23,6 +23,7 @@ class LiveGamesController < ApplicationController
 
   def create
     @live_game = LiveGame.create(table_create_params)
+    PlayerQueue.create(live_game_id: @live_game.id)
 
     if @live_game.id
       redirect_to live_games_path
