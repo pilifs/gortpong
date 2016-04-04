@@ -1,0 +1,5 @@
+<% @queue.player_id.each do |player| %>
+  <li class="player-in-queue">
+    <%= Player.find(player).slack_handle %> - <%= link_to "Remove From Queue", live_game_player_queue_path(@queue.live_game, @queue, player_id: "#{player}" ), method: :delete, remote: true, data: { confirm: "Are you sure?" } %>
+  </li>
+<% end %>

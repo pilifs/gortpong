@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402173843) do
+ActiveRecord::Schema.define(version: 20160404163002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20160402173843) do
     t.string   "table_name"
     t.boolean  "in_progress"
   end
+
+  create_table "player_queues", force: :cascade do |t|
+    t.integer  "live_game_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "player_id",    default: [],              array: true
+  end
+
+  add_index "player_queues", ["live_game_id"], name: "index_player_queues_on_live_game_id", using: :btree
 
   create_table "players", force: :cascade do |t|
     t.integer  "games_played"
@@ -80,4 +89,5 @@ ActiveRecord::Schema.define(version: 20160402173843) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "player_queues", "live_games"
 end

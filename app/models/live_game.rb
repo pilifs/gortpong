@@ -1,4 +1,7 @@
 class LiveGame < ActiveRecord::Base
+
+  has_one :player_queue
+
   validates_presence_of :table_name
   validates :table_name, uniqueness: true
   validates :table_name, length: { minimum: 3 }

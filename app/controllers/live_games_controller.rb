@@ -11,6 +11,7 @@ class LiveGamesController < ApplicationController
 
   def show
     @live_game = LiveGame.find(params[:id])
+    @queue = @live_game.player_queue
     respond_to do |format|
       format.html
       format.json
@@ -23,6 +24,7 @@ class LiveGamesController < ApplicationController
 
   def create
     @live_game = LiveGame.create(table_create_params)
+    PlayerQueue.create(live_game_id: @live_game.id)
 
     if @live_game.id
       redirect_to live_games_path
