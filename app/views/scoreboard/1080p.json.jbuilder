@@ -1,5 +1,9 @@
-json.player_1 @table.player_one_slack
-json.player_2 @table.player_one_slack
-json.player_1_score @table.player_one_score
-json.player_2_score @table.player_two_score
+json.player_1 do
+  json.player @table.player_one_slack
+  json.score @table.player_one_score
+end
+json.player_2 do
+  json.player @table.player_two_slack
+  json.score @table.player_two_score
+end
 json.queue @table.player_queue.player_id
