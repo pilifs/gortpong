@@ -3,11 +3,9 @@ class ScoreboardController < ApplicationController
   before_action :get_scoreboard_id
 
   def show
-
   end
 
   def hd
-    @test = "test"
     respond_to do |format|
       format.json {}
       format.html {}
